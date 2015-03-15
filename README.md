@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
+* [Linkki sovellukseeni](https://pparmann.users.cs.helsinki.fi/kotilaakari/)
 * [Linkki dokumentaatiooni](https://www.github.com)
 
 ## Työn aihe
