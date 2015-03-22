@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lääkärin Jurpon ohjelma</h1>
+
+  <p>
+    <a href="#" class="btn btn-success">Lisää käynti</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Käynti alkaa</th>
+        <th>Käynti loppuu</th>
+        <th>Potilasnumero</th>
+        <th>Etunimi</th>
+        <th>Sukunimi</th>
+        <th>Osoite</th>
+        <th>Status</th>
+        <th>Lisäyspäivämäärä</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Listataan käynti tähän -->
+      <tr>
+        <td>11.11.2011 12.30</td>
+        <td>11.11.2011 13.00</td>
+        <td><a href="#">123456</a></td>
+         <td>Antti</td>
+        <td>Asiakas</td>
+        <td>Repokatu 1</td>
+        <td><label class="label label-danger">käymättä</label></td>
+        <td>11.12.2011</td>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
