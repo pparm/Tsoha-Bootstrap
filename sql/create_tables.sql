@@ -21,15 +21,15 @@ CREATE TABLE Laakari(
 CREATE TABLE Tilaus(
   id SERIAL PRIMARY KEY, -- SERIAL tyyppinen pääavain pitää huolen, että tauluun lisätyllä rivillä on aina uniikki pääavain. Kätevää!
   id_asiakasnumero INTEGER REFERENCE Asiakas(id),
-  laakarinumero INTEGER REFERENCE Laakari(laakarinumero),
+  laakarinumero INTEGER REFERENCE laakari(id),
     oireet varchar(400)
 );
  
 CREATE TABLE Kaynti(
 id SERIAL PRIMARY KEY,
 id_tilausnumero INTEGER REFERENCE Tilaus(id),
-asiakasnumero INTEGER REFERENCE Asiakas(asiakasnumero),
-laakarinumero INTEGER REFERENCE Laakari(laakarinumero)
+asiakasnumero INTEGER REFERENCE Asiakas(id),
+laakarinumero INTEGER REFERENCE Laakari(id)
 );
 CREATE TABLE Hoito-ohje(
 id SERIAL PRIMARY KEY,

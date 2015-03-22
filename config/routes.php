@@ -1,8 +1,5 @@
 <?php
 
-  $routes->get('/', function() {
-    HelloWorldController::index();
-  });
 
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
@@ -35,4 +32,7 @@ $routes->get('/potilaan_historia_muokkaus', function() {
 });
 $routes->get('/laakarin_ohjelma', function() {
   KotiLaakariController::laakarinOhjelma();
+});
+$routes->get('/', function() {
+  KotiLaakariController::Etusivu();
 });

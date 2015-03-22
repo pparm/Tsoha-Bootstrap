@@ -34,6 +34,11 @@
   
               View::make('kotilaakari/laakarin_ohjelma.html');
     }
+  
+          public static function Etusivu(){
+  
+              View::make('kotilaakari/etusivu.html');
+    }
   }
     
     
