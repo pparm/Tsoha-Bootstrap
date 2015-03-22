@@ -13,3 +13,4 @@ GUI linkit
 
 * [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/kirjautuminen)
 * [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/rekisteroituminen)
+* [Linkki potilaan historiaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia)
