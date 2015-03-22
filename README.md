@@ -1,5 +1,7 @@
 # Tietokantasovelluksen esittelysivu
 
+- kaikki attribuutit tietokannassa muodoistuivat avaimiksi. Ilmeisesti tämän seurauksena niihin viittaavat taulut eivät muodostuneet. Selvitetään ohjaustunnilla. Projekti hyvin aikataulussa ja taulut sekä GUI tarvitsee vielä hiontaa.
+
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](https://pparmann.users.cs.helsinki.fi/kotilaakari/)
