@@ -12,5 +12,8 @@ Lääkärien kotikäynnit [linkki valmiiseen aiheeseen](http://advancedkittenry.
 GUI linkit
 
 * [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/kirjautuminen)
-* [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/rekisteroituminen)
-* [Linkki potilaan historiaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia)
+* [Linkki asiakkaan rekisteröitymiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/rekisteroituminen)
+* [Linkki asiakkaan historiaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia)
+* [Linkki lääkärin potilaan historian muokkaamiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia_muokkaus)
+* [Linkki lääkärin ohjelmaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/laakarin_ohjelma)
+* 
