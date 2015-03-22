@@ -16,4 +16,4 @@ GUI linkit
 * [Linkki asiakkaan historiaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia)
 * [Linkki lääkärin potilaan historian muokkaamiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/potilaan_historia_muokkaus)
 * [Linkki lääkärin ohjelmaan](http://pparmann.users.cs.helsinki.fi/kotilaakari/laakarin_ohjelma)
-* 
+* [Linkki etusivun](http://pparmann.users.cs.helsinki.fi/kotilaakari/)
