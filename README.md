@@ -9,7 +9,7 @@ Yleisiä linkkejä:
 
 Lääkärien kotikäynnit [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Laakarin_kotikaynnit.html) 
 
-GUI linkkit
+GUI linkit
 
 * [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/kirjautuminen)
 
