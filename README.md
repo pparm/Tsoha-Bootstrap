@@ -12,3 +12,4 @@ Lääkärien kotikäynnit [linkki valmiiseen aiheeseen](http://advancedkittenry.
 GUI linkkit
 
 * [Linkki sisäänkirjautumiseen](http://pparmann.users.cs.helsinki.fi/kotilaakari/kirjautuminen/)
+c
