@@ -5,7 +5,10 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](https://pparmann.users.cs.helsinki.fi/kotilaakari/)
-* [Linkki dokumentaatiooni](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/)
+* [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiokansioon](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/)
+* 
+
 
 ## Työn aihe
 
