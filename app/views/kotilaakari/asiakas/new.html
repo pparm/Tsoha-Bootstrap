@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lisää asiakas</h1>
+
+  <form method="post" action="{{base_path}}/kotilaakari/asiakas">
+    <div class="form-group">
+      <label>Etunimi</label>
+      <input name="a_etunimi" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Sukunimi</label>
+      <input name="a_sukunimi" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Osoite</label>
+      <input name="a_osoite" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Puhelinnumero</label>
+      <textarea name="a_pushelinnumero" class="form-control"></textarea>
+    </div>
+    
+      <div class="form-group">
+      <label>Sähköposti</label>
+      <textarea name="a_sahkoposti" class="form-control"></textarea>
+    </div>
+
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+  </form>
+{% endblock %}

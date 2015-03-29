@@ -2,7 +2,19 @@
 
   class KotiLaakariController extends BaseController{
 
-    public static function index(){
+     public static function sandbox(){
+    $asiakkaat = Asiakas::all();
+    // Kint-luokan dump-metodi tulostaa muuttujan arvon
+    Kint::dump($asiakkaat);
+    $asiakas = Asiakas::find(1);
+    Kint::dump($asiakas);
+    
+    
+     }
+      
+      
+      
+      public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
    	//  View::make('home.html');
     echo 'Tämä on etusivu!';
@@ -19,10 +31,6 @@
    View::make('kotilaakari/rekisteroituminen.html');
     }
     
-          public static function potilaanHistoria(){
-  
-              View::make('kotilaakari/potilaan_historia.html');
-    }
   
   
           public static function potilaanHistoriaMuokkaus(){

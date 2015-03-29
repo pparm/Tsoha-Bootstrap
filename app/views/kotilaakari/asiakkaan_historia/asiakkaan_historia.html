@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Lääkärin Jurpon historia</h1>
+  <h1>Asiakas Jussi Jurpo</h1>
 
   <p>
     <a href="#" class="btn btn-success">Lisää käynti</a>
@@ -9,10 +9,11 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Potilasnumero</th>
+        <th>Asiakasnumero</th>
         <th>Etunimi</th>
         <th>Sukunimi</th>
-        <th>Päivämäärä</th>
+        <th>Käynti Päivämäärä</th>
+        <th>Lääkäri</th>
         <th>Raportti</th>
         <th>Hoito-ohje</th>
         <th>Status</th>
@@ -25,11 +26,12 @@
       <!-- Listataan käynti tähän -->
       <tr>
         <td>123456</td>
-         <td>Jussi</td>
+         <td>Atte</td>
          <td>Asiakas</td>
         <td>11.11.2011</td>
-        <td><a href="#">Potilas ok</a></td>
-        <td><a href="#">Potilaan tulee nukkua</a></td>
+        <td>Lääkäri Jurpo</td>
+        <td><a href="#">Asiakas ok</a></td>
+        <td><a href="#">Asiakkaan tulee nukkua</a></td>
         <td><label class="label label-danger">kesken</label></td>
         <td>11.12.2011</td>
         <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kotilääkäriyrityksen asiakkaat</h1>
+
+  <p>
+    <a href="{{base_path}}/kotilaakari/asiakkaat/new" class="btn btn-success">Lisää asiakas</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Asiakasnumero</th>
+        <th>Etunimi</th>
+        <th>Sukunimi</th>
+        <th>Osoite</th>
+        <th>Puhelinnumero</th>
+        <th>Sähköposti</th>
+        <!-- <th>Status</th>
+        -->
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+     {% for asiakas in asiakkaat %}
+  
+     <tr>
+            <td><a href="{{base_path}}/kotilaakari/asiakkaat/{{asiakas.a_id}}">{{asiakas.a_id}}</td>
+          <td>{{asiakas.a_etunimi}}</td>
+          <td>{{asiakas.a_sukunimi}}</td>
+          <td>{{asiakas.a_osoite}}</td>
+          <td>{{asiakas.a_puhelinnumero}}</td>
+          <td>{{asiakas.a_sahkoposti}}</td>
+          
+          
+    <!--     
+          <td>
+              {% if game.played %}
+                <label class="label label-success">pelattu
+              {% else %}
+                <label class="label label-danger">kesken
+              {% endif %}
+          </td>
+        
+          -->
+          <td><a class="btn btn-default btn-sm" href="{{base_path}}/kotilalaakari/asiakkaat{{asiakas.a_id}}/edit">Muokkaa</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
