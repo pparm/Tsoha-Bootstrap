@@ -4,7 +4,7 @@ KOLMAS PALAUTUS:
 all-, find- ja save funtiot-metodit tehty luokalle Askikas.
 Näkymä asiakkaat onnistuttu rakentamaan. Muita ei.
 
-*[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakaat)
+*[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
  
 -------------------------------------------------------------------------------------
 
