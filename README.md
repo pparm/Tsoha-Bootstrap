@@ -1,11 +1,20 @@
 # Tietokantasovelluksen esittelysivu
 
-- kaikki attribuutit tietokannassa muodoistuivat avaimiksi. Ilmeisesti tämän seurauksena niihin viittaavat taulut eivät muodostuneet. Selvitetään ohjaustunnilla. Projekti hyvin aikataulussa ja taulut sekä GUI tarvitsee vielä hiontaa.
+KOLMAS PALAUTUS:
+all-, find- ja save-metodit tehty luokalle Askiakas.
+Näkymä asiakkaat onnistuttu rakentamaan. Muita ei.
+
+*[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
+ 
+************************************************************************************************
 
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](https://pparmann.users.cs.helsinki.fi/kotilaakari/)
-* [Linkki dokumentaatiooni](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/)
+* [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiokansioon](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/)
+* 
+
 
 ## Työn aihe
 
