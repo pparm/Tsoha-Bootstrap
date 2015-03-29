@@ -1,12 +1,12 @@
 # Tietokantasovelluksen esittelysivu
 
 KOLMAS PALAUTUS:
-all-, find- ja save funtiot-metodit tehty luokalle Askikas.
+all-, find- ja save-metodit tehty luokalle Askiakas.
 Näkymä asiakkaat onnistuttu rakentamaan. Muita ei.
 
 *[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
  
--------------------------------------------------------------------------------------
+************************************************************************************************
 
 Yleisiä linkkejä:
 
