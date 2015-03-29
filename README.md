@@ -1,9 +1,12 @@
 # Tietokantasovelluksen esittelysivu
 
 KOLMAS PALAUTUS:
-* [Linkki sovellukseeni](https://pparmann.users.cs.helsinki.fi/kotilaakari/)
- 
+all-, find- ja save funtiot-metodit tehty luokalle Askikas.
+Näkymä asiakkaat onnistuttu rakentamaan. Muita ei.
 
+*[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakaat)
+ 
+-------------------------------------------------------------------------------------
 
 Yleisiä linkkejä:
 
