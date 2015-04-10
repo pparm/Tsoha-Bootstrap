@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Jaska Vyöry</h1>
+  <div class="alert alert-success">
+  {{message}}
+</div>
+  <!-- Painikkeet tähän -->
+  
+  <p>
+    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
+  </p>
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Asiakasnumero:</strong> {{asiakas.a_id}}</li>
+    <li><strong>Etunimi:</strong> {{asiakas.a_etunimi}}</li>
+    <li><strong>Sukunimi:</strong>{{asiakas.a_sukunimi}}</li>
+    <li><strong>Osoite:</strong>{{asiakas.a_osoite}}</li>
+    <li><strong>Puhelin::</strong> {{asiakas.a_puhelinnumero}}</li>
+    <li><strong>Sähköposti:</strong> {{asiakas.a_sahkoposti}}</li>
+  </ul>
+  <!-- Kuvaus tulee tähän -->
+  <p>
+  </p>
+{% endblock %}

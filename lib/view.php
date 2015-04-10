@@ -34,6 +34,7 @@
 
       return new Twig_Environment($twig_loader);
     }
+    
 
     private static function set_flash_message(&$content){
       if(isset($_SESSION['flash_message'])){

@@ -1,10 +1,18 @@
+
 <?php
 
 
-  $routes->get('/hiekkalaatikko', function() {
-      KotiLaakariController::sandbox();
-  });
 
+
+
+
+  $routes->get('/hiekkalaatikko', function() {
+      HelloWorldController::sandbox();
+    
+      
+      
+  });
+/*
 $routes->get('/game', function() {
   HelloWorldController::game_list();
 });
@@ -35,7 +43,7 @@ $routes->get('/asiakkaan_historia', function() {
 $routes->get('/asiakkaat', function() {
   AsiakasController::index();
 });
-
+*/
 // Pelin lisääminen tietokantaan
 $routes->post('/asiakas', function(){
   AsiakasController::store();
@@ -44,7 +52,13 @@ $routes->post('/asiakas', function(){
 
 // Pelin lisäyslomakkeen näyttäminen
 $routes->get('/asiakas/new', function(){
-    AsiakasController::store();
+    AsiakasController::create();
+});
+ 
+ 
+// Pelin lisäyslomakkeen näyttäminen
+$routes->get('/asiakas/testi', function(){
+    AsiakasController::viestikoe();
 });
 
 
@@ -52,10 +66,14 @@ $routes->get('/asiakas/:a_id', function($a_id) {
   AsiakasController::find($a_id);
 });
 
+/*
+$routes->get('/asiakas/tiedot', function($a_id) {
+  AsiakasController::find($a_id);
+});
 
+*/
 
-
-
+/*
 
 
 
@@ -69,3 +87,5 @@ $routes->get('/laakarin_ohjelma', function() {
 $routes->get('/', function() {
   KotiLaakariController::Etusivu();
 });
+ */
+

@@ -8,7 +8,8 @@ class Asiakas extends BaseModel {
     // Konstruktori
     public function __construct($attributes) {
         parent::__construct($attributes);
-
+        $this->validators = array('validate_a_etunimi','validate_a_sukunimi');
+        
         }
 
     public static function all() {
@@ -29,8 +30,12 @@ class Asiakas extends BaseModel {
 
 
 
-            return $asiakkaat;
+            
+        
+       
         }
+        
+        return $asiakkaat;
     }
 
 
@@ -65,5 +70,34 @@ class Asiakas extends BaseModel {
     $this->a_id = $row['a_id'];
   }
 
+  public function validate_a_etunimi(){
+      
+      $errors = array();
+        if($this->a_etunimi ='' || $this ->a_etunimi == null){
+            $errors[] = 'Etuniminimi ei saa olla tyhjä!';
+            
+            
+        }
+      if(strlen($this->a_etunimi)<3){
+          $errors[] = 'Etunimen pituuden tulee olla vähintään kolme merkkiä!';
+          
+      }
+      return $errors;
+  }
+  public function validate_a_sukunimi(){
+      
+      $errors = array();
+        if($this->a_sukunimi ='' || $this ->a_sukunimi == null){
+            $errors[] = 'Sukunimi ei saa olla tyhjä!';
+            
+            
+        }
+      if(strlen($this->a_sukunimi)<3){
+          $errors[] = 'Sukunimen pituuden tulee olla vähintään kolme merkkiä!';
+          
+      }
+      return $errors;
+  }
+  
 
 }

@@ -20,10 +20,24 @@
       $errors = array();
 
       foreach($this->validators as $validator){
-        // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+      
+      
+      $errors = array_merge($errors,$this-> {$validator}());
+// Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+      
+          
+          
       }
 
       return $errors;
     }
-
+    public function validate_string_length($string,$length){
+        if($string!='' && strlen($string)>=$length){
+            return TRUE;
+        }
+        return FALSE;
+    }
+    
+    
+    
   }

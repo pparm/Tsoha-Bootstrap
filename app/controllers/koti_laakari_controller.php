@@ -9,7 +9,6 @@
     $asiakas = Asiakas::find(1);
     Kint::dump($asiakas);
     
-    
      }
       
       
