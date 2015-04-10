@@ -17,9 +17,14 @@
         $kipee = new Asiakas(array(
             'a_etunimi' => 'aaa',
             'a_sukunimi' => 'aaa'));
-        $errors = $kipee -> errors();
+        $errors = $kipee ->errors();
+       // kint::dump($errors);
         kint::dump($errors);
-    }
+    
+        
+       
+       }
+      
             
             
             

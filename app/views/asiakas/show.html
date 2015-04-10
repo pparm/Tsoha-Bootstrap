@@ -7,7 +7,13 @@
   <!-- Painikkeet tähän -->
   
   <p>
-    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
+    <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
+        <button type="submit" class="btn btn-danger">Poista</button>
+    </form>   
+     
+    
+  <!--  <a href="#" class="btn btn-default">Muokkaa</a>
+  -->
   </p>
   <!-- Tiedot tulee listana tähän -->
   <ul>

@@ -31,13 +31,13 @@
 
       return $errors;
     }
-    public function validate_string_length($string,$length){
+    /*public function validate_string_length($string,$length){
         if($string!='' && strlen($string)>=$length){
             return TRUE;
         }
         return FALSE;
     }
-    
+    */
     
     
   }

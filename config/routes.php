@@ -66,6 +66,24 @@ $routes->get('/asiakas/:a_id', function($a_id) {
   AsiakasController::find($a_id);
 });
 
+$routes->get('/asiakas/:a_id/edit', function($a_id){
+  // Pelin muokkauslomakkeen esittäminen
+  AsiakasController::edit($a_id);
+});
+$routes->post('/asiakas/:a_id/edit', function($a_id){
+  // Pelin muokkaaminen
+  AsiakasController::update($a_id);
+});
+
+$routes->post('/asiakas/:a_id/destroy', function($a_id){
+  // Pelin poisto
+
+AsiakasController::destroy($a_id);
+});
+
+
+
+
 /*
 $routes->get('/asiakas/tiedot', function($a_id) {
   AsiakasController::find($a_id);

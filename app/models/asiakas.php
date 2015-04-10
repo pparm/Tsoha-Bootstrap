@@ -69,11 +69,30 @@ class Asiakas extends BaseModel {
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     $this->a_id = $row['a_id'];
   }
+  
+    public function update(){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('UPDATE Asiakas (a_etunimi, a_sukunimi, a_osoite, a_puhelinnumero, a_sahkoposti) VALUES (:a_etunimi, :a_sukunimi, :a_osoite, :a_puhelinnumero,:a_sahkoposti) RETURNING a_id');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('a_etunimi' => $this->a_etunimi,'a_sukunimi' => $this->a_sukunimi, 'a_osoite' => $this->a_osoite, 'a_puhelinnumero' => $this->a_puhelinnumero,'a_sahkoposti' => $this->a_sahkoposti));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    $this->a_id = $row['a_id'];
+  }
+    public function destroy($a_id){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    kint::dump($a_id);
+        $query = DB::connection()->prepare('DELETE FROM Asiakas where a_id = :a_id');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('a_id'=> $a_id));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+  }
 
   public function validate_a_etunimi(){
       
       $errors = array();
-        if($this->a_etunimi ='' || $this ->a_etunimi == null){
+        if($this->a_etunimi =='' || $this ->a_etunimi == null){
             $errors[] = 'Etuniminimi ei saa olla tyhjä!';
             
             
@@ -87,7 +106,7 @@ class Asiakas extends BaseModel {
   public function validate_a_sukunimi(){
       
       $errors = array();
-        if($this->a_sukunimi ='' || $this ->a_sukunimi == null){
+        if($this->a_sukunimi =='' || $this ->a_sukunimi == null){
             $errors[] = 'Sukunimi ei saa olla tyhjä!';
             
             

@@ -17,74 +17,55 @@ class AsiakasController extends BaseController {
         View::make('asiakas/new.html');
     }
 
-    public static function xtore() {
-        // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
-        $params = $_POST;
-        // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
-        $asiakas = new Asiakas(array(
-            'a_etunimi' => $params['a_etunimi'],
-            'a_sukunimi' => $params['a_sukunimi'],
-            'a_osoite' => $params['a_osoite'],
-            'a_puhelinnumero' => $params['a_puhelinnumero'],
-            'a_sahkoposti' => $params['a_sahkoposti']
-        ));
-        // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-        //Kint::dump($params);
-        $asiakas->save();
-        // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
-        Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty kirjastoosi!'));
-    }
-
-    public static function xxstore() {
-        // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
-        $params = $_POST;
-        // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
-
-
-        $asiakas = new Asiakas(array(
-            'a_etunimi' => $params['a_etunimi'],
-            'a_sukunimi' => $params['a_sukunimi'],
-            'a_osoite' => $params['a_osoite'],
-            'a_puhelinnumero' => $params['a_puhelinnumero'],
-            'a_sahkoposti' => $params['a_sahkoposti']
-        ));
-        // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-        //Kint::dump($params);
-
-        if ($params['a_etunimi'] != '' && strlen($params['a_etunimi']) >= 3) {
-            $asiakas->save();
-            Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty kirjastoosi!'));
-        } else {
-            View::make('asiakas/new.html', array('error' => 'Nimessä oli virhe!'));
-        }
-    }
-    public static function store() {
-        // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
-        $params = $_POST;
-        // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
-
-
-        $asiakas = new Asiakas(array(
-            'a_etunimi' => $params['a_etunimi'],
-            'a_sukunimi' => $params['a_sukunimi'],
-            'a_osoite' => $params['a_osoite'],
-            'a_puhelinnumero' => $params['a_puhelinnumero'],
-            'a_sahkoposti' => $params['a_sahkoposti']
-        ));
-        // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-        //Kint::dump($params);
+   // Asiakkaan muokkaaminen (lomakkeeen esittäminen
+    public static function edit($a_id){
+        $asiakas = Asiakas::find($a_id);
+          View::make('asiakas/edit.html',array('attributes'=>$asiakas)) ;     
         
-        
-        if ($params['a_etunimi'] != '' && strlen($params['a_etunimi']) >= 3) {
-            $asiakas->save();
-            Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty kirjastoosi!'));
-        } else {
-            View::make('asiakas/new.html', array('error' => 'Nimessä oli virhe!'));
+    }
+    //Pelin muokkaaminen (lomakkeen käsittely)
+    
+    public static function update($a_id){
+        $params = $_POST;
+        $attributes = array(
+            'a_id' => $a_id,
+            'a_etunimi' => $params['a_etunimi'],
+            'a_sukunimi' => $params['a_sukunimi'],
+           'a_osoite' => $params['a_osoite'],
+          'a_puhelinnumero' => $params['a_puhelinnumero'],
+           'a_sahkoposti' => $params['a_sahkoposti']
+        );
+        //Alustetaan Asiakas-olio käyttäjän syöttämillä tiedoilla
+        $asiakas = new Asiakas($attributes);
+        $errors = $asiakas->errors();
+        if(count($errors)>0){
+            View::make('asiakas/edit.html',array('errors'=>$errors, 'attributes'=>attributes));
+        }else {
+             //Lutsutaan alustetun metodin olion update-metodia, joka päivittää pelin tiedot tietokannassa
+             $asiakas->update();
+             Redirect::to('/asiakas/'. $asiakas->a_id,array('message' => 'Asiakasta on muokattu onnistuneesti!'));
+             }   
         }
+        
+
+    //  Pelin poistaminen
+    public static function destroy($a_id){
+        //Alustetaan Asiakas-olio annetulla a_id:llä.
+          
+
+        
+        $asiakas = new Asiakas(array('a_id'=>$a_id));
+
+//Kutsutaan Asiakas-malliluokan metodia destroy, joka poistaa pelin sen id:llä
+        $asiakas->destroy($a_id);
+    
+        // Ohjataan käyttäjä pelien listaussivulle ilmpituksen kera
+       // Redirect::to('/asiakas',array('message'=>'Asiakas on poistettu onnistuneesti!'));
+        
     }
     
-   /*
-    *  public static function store() {
+    
+     public static function store() {
         // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
         // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
@@ -93,27 +74,30 @@ class AsiakasController extends BaseController {
         $attributes = array(
             'a_etunimi' => $params['a_etunimi'],
             'a_sukunimi' => $params['a_sukunimi'],
-           // 'a_osoite' => $params['a_osoite'],
-          //  'a_puhelinnumero' => $params['a_puhelinnumero'],
-          //  'a_sahkoposti' => $params['a_sahkoposti']
+           'a_osoite' => $params['a_osoite'],
+          'a_puhelinnumero' => $params['a_puhelinnumero'],
+           'a_sahkoposti' => $params['a_sahkoposti']
         );
         $asiakas = new Asiakas($attributes);
-       // $errors = $game -> errors();
-        // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-        //Kint::dump($params);
-        
-        
-       // if (count($errors) == 0) {
-            $asiakas->save();
-            Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty kirjastoosi!'));
-      //  } 
-       
-     //   else {
-      //      View::make('asiakas/new.html', array('error' => $errors, 'attributes' => $attributes));
-       // }
-    }
+      $errors = $asiakas -> errors();
 
-    */
+      // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
+        //Kint::dump($errors);
+      //  Kint::dump($asiakas);
+        
+        
+        if (count($errors) == 0) {
+            $asiakas->save();
+         Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty kirjastoosi!'));
+        } 
+       
+        else {
+        // kint::dump($errors);
+            
+      View::make('asiakas/new.html', array('errors' => $errors, 'attributes' => $attributes));
+        
+    }
+     }
     
     /*
       public static function store(){
