@@ -1,10 +1,15 @@
 # Tietokantasovelluksen esittelysivu
 
-KOLMAS PALAUTUS:
-all-, find- ja save-metodit tehty luokalle Askiakas.
-Näkymä asiakkaat onnistuttu rakentamaan. Muita ei.
+NELJÄS PALAUTUS:
 
-*[Linkki asiakkaat listaan](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
+Sisään kirjautuminen
+*[Lääkärin sisäänkirjautuminen](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
+Lääkärinumero:  1
+Salasana: meikku
+
+Ohjeet löytyvät dokumentaation lopusta:
+* [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+
  
 ************************************************************************************************
 
