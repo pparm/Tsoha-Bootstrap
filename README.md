@@ -3,7 +3,7 @@
 NELJÄS PALAUTUS:
 
 Sisään kirjautuminen
-*[Lääkärin sisäänkirjautuminen](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
+*[Lääkärin sisäänkirjautuminen](https://pparmann.users.cs.helsinki.fi/kotilaakari/laakari/login)
 
 *Lääkärinumero:  1
 *Salasana: meikku
