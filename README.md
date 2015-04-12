@@ -5,7 +5,7 @@ NELJÄS PALAUTUS:
 Sisään kirjautuminen
 *[Lääkärin sisäänkirjautuminen](https://pparmann.users.cs.helsinki.fi/kotilaakari/asiakkaat)
 
-*(Tunnus)Lääkärinumero:  1
+*Lääkärinumero:  1
 *Salasana: meikku
 
 * Ohjeet löytyvät dokumentaation lopusta:
