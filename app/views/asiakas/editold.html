@@ -1,0 +1,55 @@
+ {%extends "base.html" %}
+{% block content %}
+  <h1>Muokkaa asiakasta</h1>
+
+ {% if errors %}
+  <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <!--
+  <form>
+      <form method="post" action="{{base_path}}/edit">
+      <div class="alert alert-success">
+        {{error}}
+       </div>
+  -->
+<!--  <form method="post" action="{{base_path}}/edit">
+    -->  
+          <div class="form-group">
+      <label>Etunimi</label>
+      <input class="form-control" value="{{attributes.a_etunimi}}" type="text">
+    </div>
+    <div class="form-group">
+      <label>Sukunimi</label>
+      <input class="form-control" value="{{attributes.a_sukunimi}}" type="text">
+    </div>
+    <div class="form-group">
+      <label>Osoite</label>
+      <input class="form-control" value="{{attributes.a_osoite}}" type="text">
+    </div>
+    <div class="form-group">
+      <label>Puhelinnumero</label>
+      <input class="form-control" value="{{attributes.a_puhelinnumero}}" type="text">
+    </div>
+    <div class="form-group">
+      <label>Sähköposti</label>
+      <input class="form-control" value="{{attributes.a_sahkoposti}}" type="text">
+    </div>
+
+ <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{attrubutes.a.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
+    
+    
+    
+ <form method="post" action="{{base_path}}/asiakas/{{asiakas.a_id}}/edit" style="display: inline-block;">
+  <button type="submit" class="btn btn-primary">Muokkaa</button>
+</form>   
+    
+    {% endblock %}

@@ -1,0 +1,24 @@
+
+
+
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kirjaudu sisään</h1>
+  <div class="alert alert-success">
+  {{error}}
+</div>
+  <form method="post" action="{{base_path}}/laakari/login">
+    <div class="form-group">
+      <label>Lääkärinumero</label>
+      <input class="form-control" name="l_id" value="{{l_id}}" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Salasana</label>
+      <input class="form-control" name="l_salasana" type="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+  </form>
+{% endblock %}
+

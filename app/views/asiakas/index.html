@@ -2,7 +2,14 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Kotilääkäriyrityksen asiakkaat</h1>
-
+ <!-- {% if laakari_logged_in%}-->
+  <h1>Lääkärin asiakkaat</h1>
+  <h1>Lääkärin {{laakari_logged_in.l_etunimi}} asiakkaat</h1>
+ <!--{%endif%}-->
+ 
+  <div class="alert alert-success">
+  {{message}}
+</div>
   <p>
     <a href="{{base_path}}/asiakas/new" class="btn btn-success">Lisää asiakas</a>
   </p>
@@ -26,25 +33,14 @@
       {% for asiakas in asiakkaat %}
  
      <tr>
-            <td><a href="{{base_path}}/asiakas/{{asiakas.a_id}}">{{asiakas.a_etunimi}}</td>
+            <td><a href="{{base_path}}/asiakas/{{asiakas.a_id}}">{{asiakas.a_id}}</td>
           <td>{{asiakas.a_etunimi}}</td>
           <td>{{asiakas.a_sukunimi}}</td>
           <td>{{asiakas.a_osoite}}</td>
           <td>{{asiakas.a_puhelinnumero}}</td>
           <td>{{asiakas.a_sahkoposti}}</td>
           
-          
-    <!--     
-          <td>
-              {% if game.played %}
-                <label class="label label-success">pelattu
-              {% else %}
-                <label class="label label-danger">kesken
-              {% endif %}
-          </td>
-        
-          -->
-          <td><a class="btn btn-default btn-sm" href="{{base_path}}/kotilalaakari/asiakas/{{asiakas.a_id}}/edit">Muokkaa</a></td>
+  <!--      <td><a class="btn btn-primary btn-sm" href="{{base_path}}/kotilalaakari/asiakas/{{asiakas.a_id}}/edit">Muokkaa</a></td>-->
         </tr>
       {% endfor %}
     </tbody>

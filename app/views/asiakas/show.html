@@ -1,30 +1,44 @@
+
+{% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
-  <h1>Jaska Vyöry</h1>
-  <div class="alert alert-success">
-  {{message}}
+<h1>Lääkärin nimi</h1>
+<div class="alert alert-success">
+    {{message}}
 </div>
-  <!-- Painikkeet tähän -->
-  
-  <p>
-    <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
-        <button type="submit" class="btn btn-danger">Poista</button>
-    </form>   
-     
-    
-  <!--  <a href="#" class="btn btn-default">Muokkaa</a>
-  -->
-  </p>
-  <!-- Tiedot tulee listana tähän -->
-  <ul>
+<!-- Painikkeet tähän -->
+
+<!--<p> -->
+<!-- {{forms.destroy_button()}}    -->
+
+
+<!--
+<form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
+-->
+<!--
+<form method="post" action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
+    <button type="submit" class="btn btn-primary">Muokkaa</button>
+</form>
+-->
+<form action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
+    <button class="btn btn-primary">Muokkaa</button>
+</form>
+
+<!--  <a href="#" class="btn btn-default">Muokkaa</a>
+-->
+<!--/<p> -->
+<!-- Tiedot tulee listana tähän -->
+<ul>
     <li><strong>Asiakasnumero:</strong> {{asiakas.a_id}}</li>
     <li><strong>Etunimi:</strong> {{asiakas.a_etunimi}}</li>
     <li><strong>Sukunimi:</strong>{{asiakas.a_sukunimi}}</li>
     <li><strong>Osoite:</strong>{{asiakas.a_osoite}}</li>
     <li><strong>Puhelin::</strong> {{asiakas.a_puhelinnumero}}</li>
     <li><strong>Sähköposti:</strong> {{asiakas.a_sahkoposti}}</li>
-  </ul>
-  <!-- Kuvaus tulee tähän -->
-  <p>
-  </p>
+</ul>
+<!-- Kuvaus tulee tähän -->
+<p>
+</p>
 {% endblock %}

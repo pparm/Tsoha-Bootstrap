@@ -27,17 +27,10 @@ class Asiakas extends BaseModel {
                 'a_puhelinnumero' => $row['a_puhelinnumero'],
                 'a_sahkoposti' => $row['a_sahkoposti'],
             ));
-
-
-
-            
-        
-       
         }
-        
+
         return $asiakkaat;
     }
-
 
     public static function find($a_id) {
         $query = DB::connection()->prepare('SELECT * FROM Asiakas WHERE a_id = :a_id LIMIT 1');
@@ -66,26 +59,29 @@ class Asiakas extends BaseModel {
     $query->execute(array('a_etunimi' => $this->a_etunimi,'a_sukunimi' => $this->a_sukunimi, 'a_osoite' => $this->a_osoite, 'a_puhelinnumero' => $this->a_puhelinnumero,'a_sahkoposti' => $this->a_sahkoposti));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
-    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+// Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     $this->a_id = $row['a_id'];
   }
   
     public function update(){
-    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    $query = DB::connection()->prepare('UPDATE Asiakas (a_etunimi, a_sukunimi, a_osoite, a_puhelinnumero, a_sahkoposti) VALUES (:a_etunimi, :a_sukunimi, :a_osoite, :a_puhelinnumero,:a_sahkoposti) RETURNING a_id');
+    
+// Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('UPDATE Asiakas SET (a_etunimi = :a_etunimi, a_sukunimi = :a_sukunimi, a_osoite = :a_osoite, a_puhelinnumero = :a_puhelinnumero, a_sahkoposti = :a_sahkoposti) VALUES (:a_etunimi WHERE :a_id RETURNING a_id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
-    $query->execute(array('a_etunimi' => $this->a_etunimi,'a_sukunimi' => $this->a_sukunimi, 'a_osoite' => $this->a_osoite, 'a_puhelinnumero' => $this->a_puhelinnumero,'a_sahkoposti' => $this->a_sahkoposti));
+    $query->execute(array('a_etunimi' => $this->a_etunimi,'a_sukunimi' => $this->a_sukunimi, 'a_osoite' => $this->a_osoite, 'a_puhelinnumero' => $this->a_puhelinnumero,'a_sahkoposti' => $this->a_sahkoposti,'a_id' => $this->a_id));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
-    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
-    $this->a_id = $row['a_id'];
+    Kint::dump($row);
+// Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    //$this->a_id = $row['a_id'];
   }
     public function destroy($a_id){
     // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    kint::dump($a_id);
+   // kint::dump($a_id);
         $query = DB::connection()->prepare('DELETE FROM Asiakas where a_id = :a_id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
     $query->execute(array('a_id'=> $a_id));
+    
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
   }
 

@@ -1,0 +1,35 @@
+
+{% import "macros/forms.html" as forms %}
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lääkärit</h1>
+  <div class="alert alert-success">
+  {{message}}
+</div>
+  <!-- Painikkeet tähän -->
+  
+  <!--<p> -->
+   <!--     -->
+  <!-- {{forms.destroy_button()}}
+  -->  
+    
+    <form method="post" action="{{base_bath}}/kotilaakari/laakari/{{laakari.l_id}}/destroy" style="display: inline-block;">
+        <button type="submit" class="btn btn-danger">Poista</button>
+    </form>
+  
+  <!--  <a href="#" class="btn btn-default">Muokkaa</a>
+  -->
+  <!--/<p> -->
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Lääkärinumero:</strong> {{laakari.l_id}}</li>
+    <li><strong>Etunimi:</strong> {{laakari.l_etunimi}}</li>
+    <li><strong>Sukunimi:</strong>{{laakari.l_sukunimi}}</li>
+    <li><strong>Osoite:</strong>{{laakari.l_osoite}}</li>
+    <li><strong>Puhelin::</strong> {{laakari.l_puhelinnumero}}</li>
+    <li><strong>Sähköposti:</strong> {{laakari.l_sahkoposti}}</li>
+  </ul>
+  <!-- Kuvaus tulee tähän -->
+  <p>
+  </p>
+{% endblock %}
