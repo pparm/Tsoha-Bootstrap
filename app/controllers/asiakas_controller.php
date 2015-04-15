@@ -3,6 +3,8 @@
 class AsiakasController extends BaseController {
 
     public static function find($a_id) {
+      
+         self::check_logged_in();
         $asiakas = Asiakas::find($a_id);
 
         View::make('asiakas/show.html', array('asiakas' => $asiakas));
@@ -10,16 +12,19 @@ class AsiakasController extends BaseController {
     }
 
     public static function index() {
+         self::check_logged_in();
         $asiakkaat = Asiakas::all();
         View::make('asiakas/index.html', array('asiakkaat' => $asiakkaat));
     }
 
     public static function create() {
+         self::check_logged_in();
         View::make('asiakas/new.html');
     }
 
     // Asiakkaan muokkaaminen (lomakkeeen esittäminen
     public static function edit($a_id) {
+         self::check_logged_in();
         $asiakas = Asiakas::find($a_id);
         View::make('asiakas/edit.html', array('attributes' => $asiakas));
     }
@@ -28,6 +33,7 @@ class AsiakasController extends BaseController {
 
     public static function update($a_id) {
       //  Kint::dump($a_id);
+         self::check_logged_in();
         $params = $_POST;
         Kint::dump($params);
         $attributes = array(
@@ -58,6 +64,7 @@ class AsiakasController extends BaseController {
 
     //  Pelin poistaminen
     public static function destroy($a_id) {
+         self::check_logged_in();
         //Alustetaan Asiakas-olio annetulla a_id:llä.
 
 
@@ -72,7 +79,8 @@ class AsiakasController extends BaseController {
     }
 
     public static function store() {
-        // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+         self::check_logged_in();
+// POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
         // Alustetaan uusi Asiakas-luokan olion käyttäjän syöttämillä arvoilla
 

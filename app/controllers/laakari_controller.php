@@ -89,7 +89,13 @@ class LaakariController extends BaseController{
         Redirect::to('/laakarit',array('message'=>'Lääkäri on poistettu onnistuneesti!'));
         
     }
-     
+  
+    public static function logout(){
+    $_SESSION['laakari'] = null;
+    Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
+    
+    
      
      
        

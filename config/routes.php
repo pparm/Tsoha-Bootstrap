@@ -1,76 +1,68 @@
 
 <?php
 
-
-
-
-
-
-  $routes->get('/hiekkalaatikko', function() {
-      HelloWorldController::sandbox();
-    
-      
-      
-  });
+$routes->get('/hiekkalaatikko', function() {
+    HelloWorldController::sandbox();
+});
 /*
-$routes->get('/game', function() {
+  $routes->get('/game', function() {
   HelloWorldController::game_list();
-});
-$routes->get('/game/1', function() {
+  });
+  $routes->get('/game/1', function() {
   HelloWorldController::game_show();
-});
+  });
 
-$routes->get('/login', function() {
+  $routes->get('/login', function() {
   HelloWorldController::login();
-});
+  });
 
-$routes->get('/kirjautuminen', function() {
+  $routes->get('/kirjautuminen', function() {
   KotiLaakariController::kirjautuminen();
-});
+  });
 
-$routes->get('/rekisteroituminen', function() {
+  $routes->get('/rekisteroituminen', function() {
   KotiLaakariController::rekisteroituminen();
-});
+  });
 
 
-// Pelin lisääminen tietokantaan
+  // Pelin lisääminen tietokantaan
 
 
-$routes->get('/asiakkaan_historia', function() {
+  $routes->get('/asiakkaan_historia', function() {
   AsiakasController::asiakkaan_historia();
-});
+  });
 
-*/
+ */
 $routes->get('/', function() {
-  AsiakasController::index();
+    AsiakasController::index();
 });
 $routes->get('/asiakkaat', function() {
-  AsiakasController::index();
+    AsiakasController::index();
 });
 
 // Asiakkaan lisääminen tietokantaan
-$routes->post('/asiakas', function(){
- //   $params = $_POST;
+$routes->post('/asiakas', function() {
+    //   $params = $_POST;
     AsiakasController::store();
 });
 
 
 // Asiakkaan lisäyslomakkeen näyttäminen
-$routes->get('/asiakas/new', function(){
-   
+$routes->get('/asiakas/new', function() {
+
     AsiakasController::create();
 });
 
 $routes->get('/asiakas/:a_id', function($a_id) {
-  AsiakasController::find($a_id);
+    AsiakasController::find($a_id);
 });
 
 
-$routes->get('/asiakas/edit/:a_id', function($a_id){
-  // Asiakkaan muokkauslomakkeen esittäminen
-  //Kint::dump($a_id);
-  // Kint::dump($_SESSION);  
-   AsiakasController::edit($a_id);
+$routes->get('/asiakas/edit/:a_id', function($a_id) {
+    // Asiakkaan muokkauslomakkeen esittäminen
+    //Kint::dump($a_id);
+    // Kint::dump($_SESSION);  
+    AsiakasController::edit($a_id);
 });
 
 
@@ -78,51 +70,49 @@ $routes->get('/asiakas/edit/:a_id', function($a_id){
 
 
 //Asiakkaan muokkaaminen tietokannassa
-$routes->post('/asiakas/edit/:a_id', function($a_id){
+$routes->post('/asiakas/edit/:a_id', function($a_id) {
 
-    
 
-AsiakasController::update($a_id);
 
-    
+    AsiakasController::update($a_id);
 });
 
 
 
 
 
-$routes->get('/asiakas/edit/:a_id', function($a_id){
-  // Asiakkaan muokkauslomakkeen esittäminen
-  //Kint::dump($a_id);
-  // Kint::dump($_SESSION);  
-   AsiakasController::edit($a_id);
+$routes->get('/asiakas/edit/:a_id', function($a_id) {
+    // Asiakkaan muokkauslomakkeen esittäminen
+    //Kint::dump($a_id);
+    // Kint::dump($_SESSION);  
+    AsiakasController::edit($a_id);
 });
 
 
-$routes->post('/asiakas/:a_id/destroy', function($a_id){
-  // Asiakkaan poisto
+$routes->post('/asiakas/:a_id/destroy', function($a_id) {
+    // Asiakkaan poisto
 
-AsiakasController::destroy($a_id);
+    AsiakasController::destroy($a_id);
 });
 
 
-$routes->get('/laakari/new', function(){
-    
+$routes->get('/laakari/new', function() {
+
     LaakariController::create();
 });
 
 
 
 $routes->get('/laakarit', function() {
-  LaakariController::index();
+    LaakariController::index();
 });
-$routes->get('/laakari/login', function(){
-  // Kirjautumislomakkeen esittäminen
-  LaakariController::login();
+$routes->get('/laakari/login', function() {
+    // Kirjautumislomakkeen esittäminen
+    LaakariController::login();
 });
-$routes->post('/laakari/login', function(){
-  // Kirjautumisen käsittely
-  LaakariController::handle_login();
+$routes->post('/laakari/login', function() {
+    // Kirjautumisen käsittely
+    LaakariController::handle_login();
 });
 
 
@@ -136,14 +126,18 @@ $routes->get('/laakari/:l_id', function($l_id) {
 
 
 
-$routes->post('/laakari', function(){
-  LaakariController::store();
+$routes->post('/laakari', function() {
+    LaakariController::store();
 });
 
-$routes->post('/laakari/:a_id/destroy', function($l_id){
-  // Lääkärin poisto
+$routes->post('/laakari/:a_id/destroy', function($l_id) {
+    // Lääkärin poisto
 
-LaakariController::destroy($l_id);
+    LaakariController::destroy($l_id);
+});
+
+$routes->post('/laakari/logout', function() {
+    LaakariController::logout();
 });
 
 
