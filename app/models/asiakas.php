@@ -66,7 +66,7 @@ class Asiakas extends BaseModel {
     public function update(){
     
 // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    $query = DB::connection()->prepare('UPDATE Asiakas SET (a_etunimi = :a_etunimi, a_sukunimi = :a_sukunimi, a_osoite = :a_osoite, a_puhelinnumero = :a_puhelinnumero, a_sahkoposti = :a_sahkoposti) VALUES (:a_etunimi WHERE :a_id RETURNING a_id');
+    $query = DB::connection()->prepare('UPDATE Asiakas SET a_etunimi = :a_etunimi, a_sukunimi = :a_sukunimi, a_osoite = :a_osoite, a_puhelinnumero = :a_puhelinnumero, a_sahkoposti = :a_sahkoposti WHERE a_id = :a_id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
     $query->execute(array('a_etunimi' => $this->a_etunimi,'a_sukunimi' => $this->a_sukunimi, 'a_osoite' => $this->a_osoite, 'a_puhelinnumero' => $this->a_puhelinnumero,'a_sahkoposti' => $this->a_sahkoposti,'a_id' => $this->a_id));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon

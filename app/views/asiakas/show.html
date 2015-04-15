@@ -2,7 +2,7 @@
 {% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
-<h1>Lääkärin nimi</h1>
+<h1>{{user_logged_in.l_etunimi}} </h1>
 <div class="alert alert-success">
     {{message}}
 </div>
@@ -12,11 +12,11 @@
 <!-- {{forms.destroy_button()}}    -->
 
 
-<!--
+
 <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista</button>
 </form>
--->
+
 <!--
 <form method="post" action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-primary">Muokkaa</button>

@@ -74,33 +74,15 @@ $routes->get('/asiakas/edit/:a_id', function($a_id){
 });
 
 
+
+
+
 //Asiakkaan muokkaaminen tietokannassa
 $routes->post('/asiakas/edit/:a_id', function($a_id){
-  // Asiakkaan muokkaaminen
- //Kint::dump($_POST);
-    
-    
- // if ($_POST['action']=='muokkkaa') {
-  if ("$_POST[action]"=='muokkaa') {
-    //update action
- //     echo "brr";
-      //    Kint::dump($_POST);
-      AsiakasController::update($a_id);
-  //    $params = $_POST;
 
-      
-  } else if ("$_POST[action]"=='poista') {
-  AsiakasController::destroy($a_id);
-
-//delete action
-} else {
-    //no button pressed
-}
-    
-    
     
 
-//AsiakasController::update($a_id);
+AsiakasController::update($a_id);
 
     
 });
@@ -109,9 +91,16 @@ $routes->post('/asiakas/edit/:a_id', function($a_id){
 
 
 
+$routes->get('/asiakas/edit/:a_id', function($a_id){
+  // Asiakkaan muokkauslomakkeen esittäminen
+  //Kint::dump($a_id);
+  // Kint::dump($_SESSION);  
+   AsiakasController::edit($a_id);
+});
+
 
 $routes->post('/asiakas/:a_id/destroy', function($a_id){
-  // Pelin poisto
+  // Asiakkaan poisto
 
 AsiakasController::destroy($a_id);
 });

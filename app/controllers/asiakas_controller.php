@@ -48,8 +48,9 @@ class AsiakasController extends BaseController {
             View::make('asiakas/edit.html', array('errors' => $errors, 'attributes' => $attributes));
         } else {
             //Lutsutaan alustetun metodin olion update-metodia, joka päivittää pelin tiedot tietokannassa
-         //   $asiakas->update();
-      Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakasta on muokattu onnistuneesti!'));
+         // 
+           $asiakas->update();
+        Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakasta on muokattu onnistuneesti!'));
         }
         
            }

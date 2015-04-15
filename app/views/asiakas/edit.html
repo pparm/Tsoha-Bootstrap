@@ -1,4 +1,4 @@
-
+{% import "macros/forms.html" as forms %}
  {%extends "base.html" %}
 {% block content %}
   <h1>Muokkaa asiakasta</h1>
@@ -12,12 +12,13 @@
       </ul>
     </div>
   {% endif %}
+ 
   
   <form method="post" action="{{base_path}}/asiakas/edit/{{attributes.a_id}}">
       <div class="alert alert-success">
         {{error}}
        </div>
-
+      
           <div class="form-group">
       <label>Asiakasnumero</label>
       <input class="form-control" value="{{attributes.a_id}}" type="text">
@@ -41,7 +42,8 @@
       <label>Sähköposti</label>
       <input name="a_sahkoposti" class="form-control" value="{{attributes.a_sahkoposti}}" type="text">
     </div>
-
+    <button type="submit" class="btn btn-primary">Muokkaa</button>
+  </form>
 <!--
    /* 
     <form 
@@ -55,13 +57,23 @@
   <button type="submit" class="btn btn-primary">Muokkaa</button>
 </form>   
     -->
-    <form >
+ <!-- 
     <div class="form-group">
       <button type="submit" name = "action" value="muokkaa" class="btn btn-primary">Muokkaa</button >
-      <button type="submit" name = "action" value="poista" class="btn btn-primary">Poista</button >
+   -->
+  <p>
+   {{forms.destroy_button("#{base_path}/asiakas/#{attributes.a_id}/destroy")}}
+</p> 
+   
+   <!--
+   <form method="post" action="{{base_path}}/asiakas/{{attributes.a_id}}/destroy">
+   
+       <button type="submit" class="btn btn-primary">Poista</button >
     
-    </div>
+    
   </form>
+  -->
+
     
     
     {% endblock %}
