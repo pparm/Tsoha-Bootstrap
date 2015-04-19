@@ -1,14 +1,21 @@
 # Tietokantasovelluksen esittelysivu
 
-NELJÄS PALAUTUS:
+VIIDES PALAUTUS:
 
-Sisään kirjautuminen
-*[Lääkärin sisäänkirjautuminen](https://pparmann.users.cs.helsinki.fi/kotilaakari/laakari/login)
+Sessiot tehty asiakkaalle ja lääkärille. Käyttöliittymän kanssa pahoja ongelmia. Lopputuloksena järjestelmä
+toimii huonommin kuin palautuksessa 4. 
+*https://pparmann.users.cs.helsinki.fi/kotilaakari/
 
+Lääkärin sisään kirjautuminen:
 *Lääkärinumero:  1
 *Salasana: meikku
 
-* Ohjeet löytyvät dokumentaation lopusta:
+Asiakkaan sisään kirjautuminen:
+*Asiakasnumero:  10
+*Salasana: aaa
+
+* järjestelmän-yleisrakenne-osio ja käyttöliittymän ja järjestelmän komponentteja kuvaa kaavio löytyy dokumentaation luvusta 4.
+* 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
  
