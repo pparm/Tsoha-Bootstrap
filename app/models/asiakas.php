@@ -12,6 +12,10 @@ class Asiakas extends BaseModel {
         
         }
         
+        
+        
+        
+        
             public static function signup($attributes) {
         parent::__construct($attributes);
         $this->validators = array('validate_a_etunimi','validate_a_sukunimi');

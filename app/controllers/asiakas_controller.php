@@ -31,6 +31,7 @@ class AsiakasController extends BaseController {
 
     public static function find($a_id) {
 
+        self::check_asiakas_logged_in();
         self::check_logged_in();
         $asiakas = Asiakas::find($a_id);
 
@@ -39,6 +40,8 @@ class AsiakasController extends BaseController {
     }
 
     public static function index() {
+        self::check_asiakas_logged_in();
+        
         self::check_logged_in();
         $asiakkaat = Asiakas::all();
         View::make('asiakas/index.html', array('asiakkaat' => $asiakkaat));
@@ -52,6 +55,9 @@ class AsiakasController extends BaseController {
     // Asiakkaan muokkaaminen (lomakkeeen esittäminen
     public static function edit($a_id) {
      //   self::check_logged_in();
+    
+        self::check_asiakas_logged_in();
+        
         $asiakas = Asiakas::find($a_id);
         View::make('asiakas/edit.html', array('attributes' => $asiakas,'message' => 'Tarkistaisitko ystävällisesti tietosi'));
     }
@@ -60,6 +66,8 @@ class AsiakasController extends BaseController {
 
     public static function update($a_id) {
         //  Kint::dump($a_id);
+        self::check_asiakas_logged_in();
+        
         self::check_logged_in();
         $params = $_POST;
         Kint::dump($params);
@@ -89,6 +97,8 @@ class AsiakasController extends BaseController {
 
     //  Pelin poistaminen
     public static function destroy($a_id) {
+       self::check_asiakas_logged_in();
+        
         self::check_logged_in();
         //Alustetaan Asiakas-olio annetulla a_id:llä.
 
@@ -104,12 +114,17 @@ class AsiakasController extends BaseController {
     }
 
     public static function store() {
-        //   self::check_logged_in();
+        self::check_asiakas_logged_in();
+        self::check_logged_in();
+                
+
+//   self::check_logged_in();
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
         ///Alustetaan uusi Asiakas-luokan olion käyttäjän syöttämillä arvoilla
 
-        Kint::dump($params);
+        
+        //Kint::dump($params);
         $attributes = array(
             'a_etunimi' => $params['a_etunimi'],
             'a_sukunimi' => $params['a_sukunimi'],
@@ -126,8 +141,8 @@ class AsiakasController extends BaseController {
             //    Kint::dump($asiakas);
             // echo "validi";
             $asiakas->save();
-            Kint::dump($asiakas);
-            if (isset($_SESSION['laakari'])) {
+          //  Kint::dump($asiakas);
+            if (isset($_SESSION['asiakas'])) {
                 Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakas on lisätty!'));
             } else {
                 $str = $asiakas->a_id;

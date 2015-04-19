@@ -5,14 +5,17 @@ class LaakariController extends BaseController{
         View::make('laakari/login.html');
     }
     
+    
+    
       public static function find($l_id) {
         $laakari = Laakari::find($l_id);
         View::make('laakari/show.html', array('laakari' => $laakari));
     }
     
         public static function index() {
-        $laakarit = Laakari::all();
-       Kint::dump($laakarit);
+        
+            $laakarit = Laakari::all();
+      // Kint::dump($laakarit);
         View::make('laakarit', array('laakarit' => $laakarit));
     }
     
@@ -96,6 +99,11 @@ class LaakariController extends BaseController{
     View::make('laakari/kaynti_lisaa.html');  }
    
     
+   /* public static function logout(){
+    $_SESSION['laakari'] = null;
+    Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
+    * */
     public static function logout(){
     $_SESSION['laakari'] = null;
     Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
