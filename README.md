@@ -15,7 +15,6 @@ Asiakkaan sisään kirjautuminen:
 *Salasana: aaa
 
 * järjestelmän-yleisrakenne-osio ja käyttöliittymän ja järjestelmän komponentteja kuvaa kaavio löytyy dokumentaation luvusta 4.
-* 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
  
