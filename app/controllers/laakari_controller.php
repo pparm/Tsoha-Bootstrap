@@ -90,6 +90,12 @@ class LaakariController extends BaseController{
         
     }
   
+    public static function kaynti_lisaa(){
+   // $_SESSION['laakari'] = null;
+        //, array('errors' => $errors, 'attributes' => $attributes)
+    View::make('laakari/kaynti_lisaa.html');  }
+   
+    
     public static function logout(){
     $_SESSION['laakari'] = null;
     Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));

@@ -3,8 +3,12 @@
 INSERT INTO Asiakas (a_etunimi, a_sukunimi,a_osoite,a_puhelinnumero) VALUES ('Atte', 'Asiakas','alkokuja','0501234');
 INSERT INTO Asiakas (a_etunimi, a_sukunimi,a_osoite,a_puhelinnumero,a_sahkoposti) VALUES ('Pipari', 'Piiras','piirakkavuori','0504321','pulu.piirakka(at)kello.fi');
 */
+
+
 INSERT INTO Laakari (l_etunimi, l_sukunimi,l_osoite,l_puhelinnumero,l_sahkoposti,l_salasana) VALUES ('Urpo', 'Lääkäri','piirakkajärvi','0504321','urpo.laakari@kotilaakari.fi','meikku');
 INSERT INTO Laakari (l_etunimi, l_sukunimi,l_osoite,l_puhelinnumero,l_sahkoposti,l_salasana) VALUES ('Jurpo', 'Puoskari','pamitie','05066666','urpo.laakari@kotilaakari.fi','yths');
+INSERT INTO Laakari (l_etunimi, l_sukunimi,l_osoite,l_puhelinnumero,l_sahkoposti,l_salasana) VALUES ('Turpo', 'Kuppari','vöyrylä','098765432','turpo.kuppaaja@kotilaakari.fi','1234');
+INSERT INTO Laakari (l_etunimi, l_sukunimi,l_osoite,l_puhelinnumero,l_sahkoposti,l_salasana) VALUES ('Nurpo', 'Nirskaaja','narinatie','9898989','nurpo.nirskaaja@kotilaakari.fi','4321');
 
 /*
 INSERT INTO Tilaus (t_asiakas_id,t_laakari_id,t_tilaus_alkaa,t_tilaus_loppuu,t_oireet) VALUES ('1','1', '1998-11-13 HH18:30:00','1998-11-13 HH19:30:00', 'vatsa kipeä');

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+
+
+<div class="page-header">
+   <div
+<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+ 
+ <form>
+  Birthday (date and time):
+  <input type="datetime-local" name="bdaytime">
+</form>
+
+    <h1>jeee</h1>
+  </div>
+ <form>
+  Birthday (date and time):
+  <input type="datetime-local" name="bdaytime">
+</form>
+
+
+<div class="alert alert-success">
+  {{error}}
+</div>
+  <div class="alert alert-success">
+  {{message}}
+</div>
+
+<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+ 
+<script type="text">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+</script>      
+
+
+  <p>
+    <a href="http://tsoha.github.io" class="btn btn-primary btn-lg">Tutustu materiaaliin <span class="glyphicon glyphicon-chevron-right"></span></a>
+  </p>
+{% endblock %}

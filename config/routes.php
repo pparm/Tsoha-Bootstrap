@@ -32,9 +32,26 @@ $routes->get('/hiekkalaatikko', function() {
   AsiakasController::asiakkaan_historia();
   });
 
- */
+
+ * 
+ *  */
+
+
+$routes->get('/asiakas/login', function() {
+    // Kirjautumislomakkeen esittäminen
+    
+    AsiakasController::login();
+});
+$routes->post('/asiakas/login', function() {
+    // Kirjautumisen käsittely
+   // Kint::dump($_POST);
+  AsiakasController::handle_login();
+});
+
+
+
 $routes->get('/', function() {
-    AsiakasController::index();
+    NakymaController::etusivu();
 });
 $routes->get('/asiakkaat', function() {
     AsiakasController::index();
@@ -42,8 +59,9 @@ $routes->get('/asiakkaat', function() {
 
 // Asiakkaan lisääminen tietokantaan
 $routes->post('/asiakas', function() {
-    //   $params = $_POST;
-    AsiakasController::store();
+     $params = $_POST;
+ //Kint::dump($params);
+AsiakasController::store();
 });
 
 
@@ -115,6 +133,10 @@ $routes->post('/laakari/login', function() {
     LaakariController::handle_login();
 });
 
+$routes->get('/laakari/kaynti_lisaa', function() {
+  echo 'haloo';
+  LaakariController::kaynti_lisaa();
+});
 
 
 
@@ -130,11 +152,13 @@ $routes->post('/laakari', function() {
     LaakariController::store();
 });
 
-$routes->post('/laakari/:a_id/destroy', function($l_id) {
+$routes->post('/laakari/:l_id/destroy', function($l_id) {
     // Lääkärin poisto
 
     LaakariController::destroy($l_id);
 });
+
+
 
 $routes->post('/laakari/logout', function() {
     LaakariController::logout();
