@@ -17,6 +17,8 @@
         if(method_exists('BaseController', 'get_user_logged_in')){
           $content['user_logged_in'] = BaseController::get_user_logged_in();
         }
+        
+        $content['asiakas_logged_in'] = BaseController::get_asiakas_logged_in();
 
         // Tulostetaan Twig:n renderöimä näkymä
         echo $twig->render($view, $content);

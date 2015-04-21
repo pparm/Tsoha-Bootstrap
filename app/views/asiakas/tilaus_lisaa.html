@@ -8,12 +8,25 @@
 <input size="16" type="text" value="2012-06-15 14:45" class="form_datetime">
  
 
-    <h1>jeee</h1>
+    <h1>Lääkärin tilaus:</h1>
   </div>
  <form>
-  Birthday (date and time):
-  <input type="datetime-local" name="bdaytime">
+  Tilaus (päivämäärä ja aika):
+ <input size="16" type="text" value="2012-06-15 14:45" class="form_datetime">
 </form>
+ <form>
+<div class="form-group">
+  <label></label>
+  <select class="form-control" name="laakari">
+    {% for category in categories %}
+      <option value="{{category.id}}">{{category.name}}</option>
+    {% endfor %}
+  </select>
+</div>
+ 
+ </form>
+  
+  
 
 
 <div class="alert alert-success">

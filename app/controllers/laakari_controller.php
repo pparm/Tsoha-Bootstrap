@@ -24,14 +24,15 @@ class LaakariController extends BaseController{
     public static function handle_login(){
     
         $params = $_POST;
+        $params['asiakas'] = NULL;
   
         $laakari = Laakari::authenticate($params['l_id'],$params['l_salasana']);
         if(!$laakari){
            View::make('laakari/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'l_id' => $params['l_id']));
            
        }
-       $_SESSION['laakari'] = $laakari -> l_id; 
-//       Kint::dump($_SESSION);
+       $_SESSION['laakari'] = $laakari->l_id; 
+    // Kint::dump($_SESSION);
     //   echo $_SESSION['laakari'];
 //Redirect::to('/asiakaat', array('message' => 'Tervetuloa takaisin     '.$laakari->l_etunimi.'!'));
         Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$laakari->l_etunimi.' '.$laakari->l_sukunimi.'!'));

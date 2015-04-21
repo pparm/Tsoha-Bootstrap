@@ -9,8 +9,9 @@ class AsiakasController extends BaseController {
     public static function handle_login() {
 
         $params = $_POST;
+        $params['laakari'] = NULL;
         $asiakas = Asiakas::authenticate($params['a_id'], $params['a_salasana']);
-
+        
         if (!$asiakas) {
             echo "ei asiakas";
             View::make('asiakas/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'a_id' => $params['a_id']));
@@ -18,7 +19,6 @@ class AsiakasController extends BaseController {
             $_SESSION['asiakas'] = $asiakas->a_id;
         }
 
-        Kint::dump($_SESSION['asiakas']);
         //   echo $_SESSION['laakari'];
          Redirect::to('/asiakas/edit/'. $asiakas->a_id);
         //Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$asiakas->a_etunimi.' '.$asiakas->a_sukunimi.'!'));
@@ -26,13 +26,12 @@ class AsiakasController extends BaseController {
 
     public static function logout() {
         $_SESSION['asiakas'] = null;
-        //Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
+       Redirect::to('/', array('message' => 'Olet kirjautunut ulos!'));
     }
 
     public static function find($a_id) {
 
-        self::check_asiakas_logged_in();
-        self::check_logged_in();
+       self::check_asiakas_or_laakari_logged_in(); 
         $asiakas = Asiakas::find($a_id);
 
         View::make('asiakas/show.html', array('asiakas' => $asiakas));
@@ -40,7 +39,7 @@ class AsiakasController extends BaseController {
     }
 
     public static function index() {
-        self::check_asiakas_logged_in();
+       // self::check_asiakas_logged_in();
         
         self::check_logged_in();
         $asiakkaat = Asiakas::all();
@@ -114,9 +113,8 @@ class AsiakasController extends BaseController {
     }
 
     public static function store() {
-        self::check_asiakas_logged_in();
-        self::check_logged_in();
-                
+       
+       self::check_asiakas_or_laakari_logged_in();         
 
 //   self::check_logged_in();
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
@@ -153,5 +151,14 @@ class AsiakasController extends BaseController {
             View::make('asiakas/new.html', array('errors' => $errors, 'attributes' => $attributes));
         }
     }
+    
+        public static function tilaus_lisaa(){
+   // $_SESSION['laakari'] = null;
+        //, array('errors' => $errors, 'attributes' => $attributes)
+    View::make('asiakas/tilaus_lisaa.html');  }
+   
+    
+    
+    
 
 }

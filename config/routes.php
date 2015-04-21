@@ -57,6 +57,15 @@ $routes->get('/asiakkaat', function() {
     AsiakasController::index();
 });
 
+$routes->post('/logout', function(){
+    SessioController::logout();
+});
+
+$routes->get('/asiakas/tilaus_lisaa', function() {
+  //echo 'haloo';
+  AsiakasController::tilaus_lisaa();
+});
+
 // Asiakkaan lisääminen tietokantaan
 $routes->post('/asiakas', function() {
      $params = $_POST;
@@ -133,10 +142,7 @@ $routes->post('/laakari/login', function() {
     LaakariController::handle_login();
 });
 
-$routes->get('/laakari/kaynti_lisaa', function() {
-  echo 'haloo';
-  LaakariController::kaynti_lisaa();
-});
+
 
 
 

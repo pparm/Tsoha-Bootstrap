@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  //alert('Hello World!');
+   $(".form_datetime").datetimepicker();
 });
