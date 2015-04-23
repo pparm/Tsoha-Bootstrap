@@ -9,20 +9,22 @@ class AsiakasController extends BaseController {
     public static function handle_login() {
 
         $params = $_POST;
-        $params['laakari'] = NULL;
-        $asiakas = Asiakas::authenticate($params['a_id'], $params['a_salasana']);
+      //  Kint::dump($params);
         
+        $asiakas = Asiakas::authenticate($params['a_id'], $params['a_salasana']);
+       // Kint::dump($asiakas);
         if (!$asiakas) {
-            echo "ei asiakas";
             View::make('asiakas/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'a_id' => $params['a_id']));
         } else {
             $_SESSION['asiakas'] = $asiakas->a_id;
         }
 
-        //   echo $_SESSION['laakari'];
+       // Kint::dump($_SESSION);
          Redirect::to('/asiakas/edit/'. $asiakas->a_id);
-        //Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$asiakas->a_etunimi.' '.$asiakas->a_sukunimi.'!'));
-    }
+       // Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$asiakas->a_etunimi.' '.$asiakas->a_sukunimi.'!'));
+   
+        }
+      
 
     public static function logout() {
         $_SESSION['asiakas'] = null;
@@ -31,7 +33,7 @@ class AsiakasController extends BaseController {
 
     public static function find($a_id) {
 
-       self::check_asiakas_or_laakari_logged_in(); 
+    //   self::check_asiakas_or_laakari_logged_in(); 
         $asiakas = Asiakas::find($a_id);
 
         View::make('asiakas/show.html', array('asiakas' => $asiakas));
@@ -39,24 +41,19 @@ class AsiakasController extends BaseController {
     }
 
     public static function index() {
-       // self::check_asiakas_logged_in();
-        
-        self::check_logged_in();
-        $asiakkaat = Asiakas::all();
+       $asiakkaat = Asiakas::all();
         View::make('asiakas/index.html', array('asiakkaat' => $asiakkaat));
     }
 
     public static function create() {
-        // self::check_logged_in();
+     //   self::check_asiakas_or_laakari_logged_in();
         View::make('asiakas/new.html');
     }
 
     // Asiakkaan muokkaaminen (lomakkeeen esittäminen
     public static function edit($a_id) {
-     //   self::check_logged_in();
-    
-        self::check_asiakas_logged_in();
         
+      //  self::check_asiakas_or_laakari_logged_in();
         $asiakas = Asiakas::find($a_id);
         View::make('asiakas/edit.html', array('attributes' => $asiakas,'message' => 'Tarkistaisitko ystävällisesti tietosi'));
     }
@@ -65,11 +62,9 @@ class AsiakasController extends BaseController {
 
     public static function update($a_id) {
         //  Kint::dump($a_id);
-        self::check_asiakas_logged_in();
-        
-        self::check_logged_in();
+    //  self::check_asiakas_or_laakari_logged_in();
         $params = $_POST;
-        Kint::dump($params);
+        //Kint::dump($params);
         $attributes = array(
             'a_id' => $a_id,
             'a_etunimi' => $params['a_etunimi'],
@@ -96,9 +91,7 @@ class AsiakasController extends BaseController {
 
     //  Pelin poistaminen
     public static function destroy($a_id) {
-       self::check_asiakas_logged_in();
-        
-        self::check_logged_in();
+  //    self::check_asiakas_or_laakari_logged_in();
         //Alustetaan Asiakas-olio annetulla a_id:llä.
 
 
@@ -114,7 +107,7 @@ class AsiakasController extends BaseController {
 
     public static function store() {
        
-       self::check_asiakas_or_laakari_logged_in();         
+  //     self::check_asiakas_or_laakari_logged_in();         
 
 //   self::check_logged_in();
 // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
@@ -152,13 +145,24 @@ class AsiakasController extends BaseController {
         }
     }
     
-        public static function tilaus_lisaa(){
-   // $_SESSION['laakari'] = null;
-        //, array('errors' => $errors, 'attributes' => $attributes)
-    View::make('asiakas/tilaus_lisaa.html');  }
-   
+        public static function tilaus(){
+           $asiakas = Asiakas::find($_SESSION['asiakas']);
+           $laakarit = Laakari::all();
+           View::make('asiakas/tilaus.html',array('laakarit' => $laakarit,'asiakas' => $asiakas));
+        }        
+        public static function tilaus_tallenna(){
+                $params = $_POST;
+                Kint::dump($params);
+            
+            
+            /*     $asiakas = Asiakas::find($_SESSION['asiakas']);
+           $laakarit = Laakari::all();
+           View::make('asiakas/tilaus.html',array('laakarit' => $laakarit,'asiakas' => $asiakas));
+       */ 
+       }        
+       
     
     
-    
-
 }
+
+

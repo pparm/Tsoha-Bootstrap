@@ -36,6 +36,15 @@ $routes->get('/hiekkalaatikko', function() {
  * 
  *  */
 
+$routes->get('/asiakas/tilaus', function() {
+ AsiakasController::tilaus();
+});
+$routes->post('/asiakas/tilaus', function() {
+ AsiakasController::tilaus();
+
+ 
+ 
+});
 
 $routes->get('/asiakas/login', function() {
     // Kirjautumislomakkeen esittäminen
@@ -44,7 +53,6 @@ $routes->get('/asiakas/login', function() {
 });
 $routes->post('/asiakas/login', function() {
     // Kirjautumisen käsittely
-   // Kint::dump($_POST);
   AsiakasController::handle_login();
 });
 
@@ -61,10 +69,6 @@ $routes->post('/logout', function(){
     SessioController::logout();
 });
 
-$routes->get('/asiakas/tilaus_lisaa', function() {
-  //echo 'haloo';
-  AsiakasController::tilaus_lisaa();
-});
 
 // Asiakkaan lisääminen tietokantaan
 $routes->post('/asiakas', function() {
@@ -135,11 +139,12 @@ $routes->get('/laakarit', function() {
 });
 $routes->get('/laakari/login', function() {
     // Kirjautumislomakkeen esittäminen
-    LaakariController::login();
+   
+   LaakariController::login();
 });
 $routes->post('/laakari/login', function() {
     // Kirjautumisen käsittely
-    LaakariController::handle_login();
+   LaakariController::handle_login();
 });
 
 

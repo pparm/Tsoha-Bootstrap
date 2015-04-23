@@ -131,6 +131,7 @@ class Asiakas extends BaseModel {
         $query = DB::connection()->prepare('SELECT * FROM Asiakas WHERE a_id = :a_id AND a_salasana = :a_salasana  LIMIT 1', array('a_id'=>$a_id, 'a_salasana' => $a_salasana));
         $query->execute(array('a_id' => $a_id,'a_salasana' => $a_salasana));
         $row = $query->fetch();
+        Kint::dump($row);
         if ($row) {
             $asiakas = new Asiakas(array(
                 'a_id' => $row['a_id'],
