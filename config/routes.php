@@ -39,8 +39,11 @@ $routes->get('/hiekkalaatikko', function() {
 $routes->get('/asiakas/tilaus', function() {
  AsiakasController::tilaus();
 });
+
 $routes->post('/asiakas/tilaus', function() {
- AsiakasController::tilaus();
+//Kint::dump($_SESSION);
+//Kint::dump($_POST);
+AsiakasController::tilaus_tallenna();
 
  
  

@@ -152,7 +152,12 @@ class AsiakasController extends BaseController {
         }        
         public static function tilaus_tallenna(){
                 $params = $_POST;
-                Kint::dump($params);
+                $session = $_SESSION;
+                $attributes = array('l_id'=>$params['laakari'],'a_id' => $session['asiakas']);
+                $asiakas = new Asiakas($attributes);
+                $asiakas ->tilaus_tallenna();
+               
+// Kint::dump($attributes);
             
             
             /*     $asiakas = Asiakas::find($_SESSION['asiakas']);

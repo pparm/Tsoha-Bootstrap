@@ -1,52 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
+  
 
+  <div>
 
+ 
 
-
-
-
-<h1>Lääkärin tilaus:</h1>
-</div>
-<form>
-    <ul>
-        <li><strong>Asiakasnumero:</strong> {{asiakas.a_id}}</li>
-        <li><strong>Etunimi:</strong> {{asiakas.a_etunimi}}</li>
-        <li><strong>Sukunimi:</strong>{{asiakas.a_sukunimi}}</li>
-    </ul>   
+    <h1>Lääkärin tilaus:</h1>
+  </div>
+ <form>
+ 
+     <ul>
+    <li><strong>Asiakasnumero:</strong> {{asiakas.a_id}}</li>
+    <li><strong>Etunimi:</strong> {{asiakas.a_etunimi}}</li>
+    <li><strong>Sukunimi:</strong>{{asiakas.a_sukunimi}}</li>
+    <li><strong>Osoite:</strong>{{asiakas.a_osoite}}</li>
+    <li><strong>Puhelin::</strong> {{asiakas.a_puhelinnumero}}</li>
+    <li><strong>Sähköposti:</strong> {{asiakas.a_sahkoposti}}</li>
+</ul>   
+     
+     
+     
 </form>
+ 
+  
+  
+  <form>
+        Tilaus (päivämäärä ja aika):
+         <input size="16" type="text" value="" class="form_datetime">
 
-
-<form> method="post" action="{{base_path}}/asiakas">
-    Tilaus (päivämäärä ja aika):
-
-    <input size="16" type="text" value="2012-06-15 14:45" class="form_datetime">
-
-    <div class="form-group">
+ </form>
+  
+<form method="post" action="{{base_path}}/asiakas/tilaus">
+     
+        <div class="form-group">
         <label>Lääkäri</label>
-        <select class="form-control" name="laakari">
-            {% for laakari in laakarit %}
-            <option value="{{laakari.l_id}}">{{laakari.l_etunimi}}</option>
-            {% endfor %}
-        </select>
-    </div>
-      <div class="form-group">
-      <label>Sähköposti</label>
-      <input name="a_sahkoposti" class="form-control" value="{{attributes.a_sahkoposti}}" type="text">
-    </div>
+  <select class="form-control" name="laakari">
+    {% for laakari in laakarit %}
+      <option value="{{laakari.l_id}}">{{laakari.l_etunimi}} {{laakari.l_sukunimi}}</option>
+    {% endfor %}
+  </select>
+</div>
+ <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tilaa</button>
+    </div>    
     
+ </form>
+     
+     
+     
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Lisää</button>
-    </div>     
-
-
-</form>
-
-
-
-
+  
+  
+  
+  
 
 <!--
 <div class="alert alert-success">
