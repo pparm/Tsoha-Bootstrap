@@ -8,8 +8,20 @@ class BaseController {
             $laakari_id = $_SESSION['laakari'];
             // Pyydetään User-mallilta käyttäjä session mukaisella id:llä
             $laakari = Laakari::find($laakari_id);
-
             return $laakari;
+        }
+        return null;
+    }
+    
+    
+    public static function get_username_logged_in() {
+        // Toteuta kirjautuneen käyttäjän haku tähän
+        if (isset($_SESSION['laakari'])) {
+            $laakari_id = $_SESSION['laakari'];
+            // Pyydetään User-mallilta käyttäjä session mukaisella id:llä
+            $laakari = Laakari::find($laakari_id);
+
+            return $laakari->l_etunimi;
         }
         return null;
     }

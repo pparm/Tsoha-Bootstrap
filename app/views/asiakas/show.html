@@ -2,7 +2,7 @@
 {% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
-<h1>{{user_logged_in.l_etunimi}} </h1>
+{{asiakas_logged_in.a_etunimi}}
 <div class="alert alert-success">
     {{message}}
 </div>

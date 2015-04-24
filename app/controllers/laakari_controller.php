@@ -116,6 +116,16 @@ class LaakariController extends BaseController{
     $_SESSION['laakari'] = null;
     Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
   }
+    public static function ohjelma($l_id){
+     $ohjelma = Kaynti::ohjelma($l_id);   
+      View::make('kaynti/ohjelma.html', array('ohjelma' => $ohjelma));  
+     
+    // Kint::dump($ohjelma);      
+     
+// Kint::dump($ohjelma);
+    //    $_SESSION['laakari'] = null;
+   // Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
+  }
     
     
      

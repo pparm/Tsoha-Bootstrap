@@ -1,7 +1,9 @@
 
 {% extends "base.html" %}
 {% block content %}
-  <h1>Lääkäri {{user_logged_in.l_etunimi}} {{user_logged_in.l_sukunimi}} asiakkaat</h1>
+ {% if user_logged_in%}
+  <h1>Lääkärin {{user_logged_in.l_etunimi}} {{user_logged_in.l_sukunimi}} ohjelma</h1>
+ {%endif%}
  
   <div class="alert alert-success">
   {{message}}
@@ -14,27 +16,29 @@
     <thead>
       <tr>
         <th>Asiakasnumero</th>
+        <th>Kaynti alkaa</th>
+        <th>Käynti loppuu</th>
         <th>Etunimi</th>
         <th>Sukunimi</th>
         <th>Osoite</th>
         <th>Puhelinnumero</th>
         <th>Sähköposti</th>
-        <!-- <th>Status</th>
-        -->
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      {% for asiakas in asiakkaat %}
+      {% for kaynti in ohjelma %}
  
      <tr>
-            <td><a href="{{base_path}}/asiakas/{{asiakas.a_id}}">{{asiakas.a_id}}</td>
-          <td>{{asiakas.a_etunimi}}</td>
-          <td>{{asiakas.a_sukunimi}}</td>
-          <td>{{asiakas.a_osoite}}</td>
-          <td>{{asiakas.a_puhelinnumero}}</td>
-          <td>{{asiakas.a_sahkoposti}}</td>
+            <td><a href="{{base_path}}/asiakas/{{kaynti.a_id}}">{{kaynti.a_id}}</td>
+          <td>{{kaynti.k_alku}}</td>
+          <td>{{kaynti.k_loppu}}</td>
+          <td>{{kaynti.a_etunimi}}</td>
+          <td>{{kaynti.a_sukunimi}}</td>
+          <td>{{kaynti.a_osoite}}</td>
+          <td>{{kaynti.a_puhelinnumero}}</td>
+          <td>{{kaynti.a_sahkoposti}}</td>
           
   <!--      <td><a class="btn btn-primary btn-sm" href="{{base_path}}/kotilalaakari/asiakas/{{asiakas.a_id}}/edit">Muokkaa</a></td>-->
         </tr>

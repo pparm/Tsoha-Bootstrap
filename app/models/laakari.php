@@ -129,4 +129,29 @@ Class Laakari extends BaseModel{
 
         return null;
     }
-}
+
+    
+                public static function ohjelma($l_id) {
+        $query = DB::connection()->prepare('SELECT kaynti.k_id, kaynti.k_alku, kaynti.k_loppu,asiakas.a_id, asiakas.a_etunimi, asiakas.a_sukunimi FROM KayntiFULL OUTER JOIN Laakari ON Laakari.l_id = Kaynti.l_id FULL OUTER JOIN Asiakas ON Asiakas.a_id = Kaynti.a_id');
+        $query->execute();
+        $rows = $query->fetchAll();
+        $asiakkaat = array();
+
+        foreach ($rows as $row) {
+            $kaynnit[] = new Laakari(array(
+                'l_id' => $row['l_id'],
+                'l_etunimi' => $row['l_etunimi'],
+                'l_sukunimi' => $row['l_sukunimi'],
+                'l_osoite' => $row['l_osoite'],
+                'l_puhelinnumero' => $row['l_puhelinnumero'],
+                'l_sahkoposti' => $row['l_sahkoposti'],
+            ));
+        }
+
+        return $laakarit;
+    }
+    
+    
+    
+    
+        }

@@ -129,6 +129,13 @@ $routes->post('/asiakas/:a_id/destroy', function($a_id) {
     AsiakasController::destroy($a_id);
 });
 
+$routes->get('/laakari/ohjelma/:l_id', function($l_id) {
+//  Kint::dump($l_id);
+  LaakariController::ohjelma($l_id);
+});
+
+
+
 
 $routes->get('/laakari/new', function() {
 
@@ -177,6 +184,7 @@ $routes->post('/laakari/:l_id/destroy', function($l_id) {
 $routes->post('/laakari/logout', function() {
     LaakariController::logout();
 });
+
 
 
 

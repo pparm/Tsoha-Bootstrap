@@ -47,7 +47,7 @@
           <y:Geometry height="146.07999999999998" width="219.67999999999995" x="-10.800000000000011" y="87.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="47.544921875" x="86.06753906249997" y="3.0">Tilaus<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="51.24560546875" x="84.21719726562497" y="3.0">Kaynti<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -58,11 +58,11 @@
             <y:AttributeLabel>&lt;&lt;key&gt;&gt;-t_id:int
 &lt;&lt;fkey&gt;&gt;-a_id:int
 &lt;&lt;fkey&gt;&gt;-l_id:int
--tilaus_alkaa:time
--tilaus_loppuu:time
--oireet:String
--raportti:String
--hoitoohje:String</y:AttributeLabel>
+-k_alku:time
+-k_loppu:time
+-k_oire:String
+-k_raportti:String
+-k_hoitoohje:String</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
