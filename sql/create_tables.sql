@@ -37,6 +37,7 @@ l_id INTEGER REFERENCES Laakari(l_id),
 k_alku TIMESTAMP,
 k_loppu TIMESTAMP,
 k_oire varchar(400),
+k_kayty varchar(400),
 k_raportti varchar(400),
 k_hoitoohje varchar(400)
 );

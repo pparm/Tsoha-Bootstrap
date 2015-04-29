@@ -3,7 +3,7 @@
 class Asiakas extends BaseModel {
 
     // Attribuutit
-    public $a_id, $l_id, $k_id, $a_etunimi, $a_sukunimi, $a_osoite, $a_puhelinnumero, $a_sahkoposti,$a_salasana;
+    public $a_id, $l_id, $k_id, $a_etunimi, $a_sukunimi, $a_osoite, $a_puhelinnumero, $a_sahkoposti,$a_salasana,$k_oire;
 
     // Konstruktori
     public function __construct($attributes) {
@@ -76,9 +76,9 @@ class Asiakas extends BaseModel {
   }
     public function tilaus_tallenna(){
     // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    $query = DB::connection()->prepare('INSERT INTO Kaynti (a_id, l_id) VALUES (:a_id, :l_id) RETURNING k_id');
+    $query = DB::connection()->prepare('INSERT INTO Kaynti (a_id, l_id,k_oire) VALUES (:a_id, :l_id, :k_oire) RETURNING k_id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
-    $query->execute(array('a_id' => $this->a_id,'l_id' => $this->l_id));
+    $query->execute(array('a_id' => $this->a_id,'l_id' => $this->l_id,'k_oire' => $this->k_oire));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
 // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi

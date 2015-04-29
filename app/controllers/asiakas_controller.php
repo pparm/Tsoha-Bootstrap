@@ -61,7 +61,7 @@ class AsiakasController extends BaseController {
     //Asiakkaan muokkaaminen (lomakkeen käsittely)
 
     public static function update($a_id) {
-        //  Kint::dump($a_id);
+        //  Kint::dump($a_id)i;
     //  self::check_asiakas_or_laakari_logged_in();
         $params = $_POST;
         //Kint::dump($params);
@@ -153,10 +153,11 @@ class AsiakasController extends BaseController {
         public static function tilaus_tallenna(){
                 $params = $_POST;
                 $session = $_SESSION;
-                $attributes = array('l_id'=>$params['laakari'],'a_id' => $session['asiakas']);
+                $attributes = array('l_id'=>$params['laakari'],'a_id' => $session['asiakas'],'k_oire' => $params['k_oire']);
                 $asiakas = new Asiakas($attributes);
                 $asiakas ->tilaus_tallenna();
-               
+         Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Tilaus lisätty!'));
+                
 // Kint::dump($attributes);
             
             
