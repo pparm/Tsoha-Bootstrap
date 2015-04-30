@@ -29,7 +29,7 @@ class Asiakas extends BaseModel {
         $query->execute();
         $rows = $query->fetchAll();
         $asiakkaat = array();
-
+      //  Kint::dump($rows);
         foreach ($rows as $row) {
             $asiakkaat[] = new Asiakas(array(
                 'a_id' => $row['a_id'],
@@ -40,8 +40,8 @@ class Asiakas extends BaseModel {
                 'a_sahkoposti' => $row['a_sahkoposti'],
             ));
         }
-
-        return $asiakkaat;
+       // Kint::dump($asiakkaat);
+       return $asiakkaat;
     }
 
     public static function find($a_id) {
@@ -121,6 +121,11 @@ class Asiakas extends BaseModel {
       }
       return $errors;
   }
+  
+  
+  
+  
+  
   public function validate_a_sukunimi(){
       
       $errors = array();

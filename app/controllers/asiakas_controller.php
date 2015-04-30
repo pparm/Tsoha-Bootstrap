@@ -166,7 +166,21 @@ class AsiakasController extends BaseController {
            View::make('asiakas/tilaus.html',array('laakarit' => $laakarit,'asiakas' => $asiakas));
        */ 
        }        
-       
+   public static function ohjelma($a_id){
+   
+$ohjelma = Kaynti::asiakkaan_ohjelma($a_id);
+Kint::dump($ohjelma);
+$asiakas = Asiakas::find($a_id);
+Kint::dump($asiakas);
+     
+     
+ //View::make('asiakas/show.html', array('asiakas' => $asiakas),array('ohjelma' => $ohjelma));  
+     
+     
+// Kint::dump($ohjelma);
+    //    $_SESSION['laakari'] = null;
+   // Redirect::to('/laakari/login', array('message' => 'Olet kirjautunut ulos!'));
+  }       
     
     
 }

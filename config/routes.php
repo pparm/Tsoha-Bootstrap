@@ -91,6 +91,12 @@ $routes->get('/asiakas/:a_id', function($a_id) {
     AsiakasController::find($a_id);
 });
 
+$routes->get('/asiakas/ohjelma/:a_id', function($a_id) {
+//  Kint::dump($l_id);
+  AsiakasController::ohjelma($a_id);
+});
+
+
 
 $routes->get('/asiakas/edit/:a_id', function($a_id) {
     // Asiakkaan muokkauslomakkeen esittäminen
@@ -128,6 +134,10 @@ $routes->post('/asiakas/:a_id/destroy', function($a_id) {
 
     AsiakasController::destroy($a_id);
 });
+
+
+
+
 
 $routes->get('/laakari/ohjelma/:l_id', function($l_id) {
 //  Kint::dump($l_id);
