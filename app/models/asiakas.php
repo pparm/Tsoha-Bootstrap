@@ -84,6 +84,16 @@ class Asiakas extends BaseModel {
 // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     $this->k_id = $row['k_id'];
   }
+    public function tilaus_paivita(){
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('UPDATE Kaynti SET a_etunimi = :a_etunimi, a_sukunimi = :a_sukunimi');
+    // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
+    $query->execute(array('a_id' => $this->a_id,'l_id' => $this->l_id,'k_oire' => $this->k_oire));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+// Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    $this->k_id = $row['k_id'];
+  }
   
     public function update(){
     

@@ -64,7 +64,9 @@ class AsiakasController extends BaseController {
         //  Kint::dump($a_id)i;
     //  self::check_asiakas_or_laakari_logged_in();
         $params = $_POST;
-        //Kint::dump($params);
+        Kint::dump($params);
+        Kint::dump($params);
+     //  Kint::dump($_POST);
         $attributes = array(
             'a_id' => $a_id,
             'a_etunimi' => $params['a_etunimi'],
@@ -85,7 +87,7 @@ class AsiakasController extends BaseController {
             //Lutsutaan alustetun metodin olion update-metodia, joka päivittää pelin tiedot tietokannassa
             // 
             $asiakas->update();
-            Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakasta on muokattu onnistuneesti!'));
+         Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Asiakasta on muokattu onnistuneesti!'));
         }
     }
 
@@ -156,8 +158,8 @@ class AsiakasController extends BaseController {
                 $attributes = array('l_id'=>$params['laakari'],'a_id' => $session['asiakas'],'k_oire' => $params['k_oire']);
                 $asiakas = new Asiakas($attributes);
                 $asiakas ->tilaus_tallenna();
-         Redirect::to('/asiakas/' . $asiakas->a_id, array('message' => 'Tilaus lisätty!'));
-                
+         Redirect::to('/asiakas/ohjelma/' . $asiakas->a_id, array('message' => 'Tilaus lisätty!'));
+                    
 // Kint::dump($attributes);
             
             
@@ -169,12 +171,12 @@ class AsiakasController extends BaseController {
    public static function ohjelma($a_id){
    
 $ohjelma = Kaynti::asiakkaan_ohjelma($a_id);
-Kint::dump($ohjelma);
+//Kint::dump($ohjelma);
 $asiakas = Asiakas::find($a_id);
-Kint::dump($asiakas);
+//Kint::dump($asiakas);
      
-     
- //View::make('asiakas/show.html', array('asiakas' => $asiakas),array('ohjelma' => $ohjelma));  
+  //Kint::dump($ohjelma);   
+ View::make('asiakas/show.html', array('asiakas' => $asiakas,'ohjelma' => $ohjelma));  
      
      
 // Kint::dump($ohjelma);

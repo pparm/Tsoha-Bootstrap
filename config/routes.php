@@ -36,6 +36,48 @@ $routes->get('/hiekkalaatikko', function() {
  * 
  *  */
 
+
+$routes->get('/kaynti/muokkaus/:k_id', function($k_id) {
+ KayntiController::kayntimuokkaa($k_id);
+});
+
+$routes->post('/kaynti/muokkaus/', function() {
+Kint::dump($_SESSION);
+Kint::dump($_POST);
+KayntiController::kayntimuokkaa_tallenna();
+
+ 
+ 
+});
+
+
+
+
+$routes->get('/kaynti/:k_id', function($k_id) {
+ KayntiController::kaynti($k_id);
+});
+
+$routes->post('/kaynti/k:id', function($k_id) {
+//Kint::dump($_SESSION);
+//Kint::dump($_POST);
+AsiakasController::kaynti_tallenna(k_id);
+
+ 
+ 
+});
+
+$routes->post('/kaynti/:k_id/destroy', function($k_id) {
+ KayntiController::destroy($k_id);
+});
+
+
+
+
+
+
+
+
+
 $routes->get('/asiakas/tilaus', function() {
  AsiakasController::tilaus();
 });
@@ -100,8 +142,9 @@ $routes->get('/asiakas/ohjelma/:a_id', function($a_id) {
 
 $routes->get('/asiakas/edit/:a_id', function($a_id) {
     // Asiakkaan muokkauslomakkeen esittäminen
-    //Kint::dump($a_id);
-    // Kint::dump($_SESSION);  
+    Kint::dump($a_id);
+     Kint::dump($_SESSION);  
+     Kint::dump($_POST);  
     AsiakasController::edit($a_id);
 });
 
@@ -113,13 +156,14 @@ $routes->get('/asiakas/edit/:a_id', function($a_id) {
 $routes->post('/asiakas/edit/:a_id', function($a_id) {
 
 
+//   Kint::dump($_SESSION);  
 
     AsiakasController::update($a_id);
 });
 
 
 
-
+/*
 
 $routes->get('/asiakas/edit/:a_id', function($a_id) {
     // Asiakkaan muokkauslomakkeen esittäminen
@@ -128,7 +172,7 @@ $routes->get('/asiakas/edit/:a_id', function($a_id) {
     AsiakasController::edit($a_id);
 });
 
-
+*/
 $routes->post('/asiakas/:a_id/destroy', function($a_id) {
     // Asiakkaan poisto
 

@@ -2,9 +2,11 @@
 {% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
-<!--{{asiakas_logged_in.a_etunimi}}-->
+
+
+<h1>Asiakkaan {{asiakas_logged_in.a_etunimi}} käynnit ja varaukset</h1>
 <div class="alert alert-success">
-    {{message}}
+    {{message}} 
 </div>
 <!-- Painikkeet tähän -->
 
@@ -12,13 +14,11 @@
 <!-- {{forms.destroy_button()}}    -->
 
 
-
 <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista</button>
 </form>
-
 <!--
-<form method="post" action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
+<form method="post" action="{{base_bath}}/kotilaakari/asiakas/edit/{    {asiakas.a_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-primary">Muokkaa</button>
 </form>
 -->
@@ -42,15 +42,13 @@
 <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Asiakasnumero</th>
-        <th>Kaynti alkaa</th>
+        <th>Käyntinumero</th>
+        <th>Käynti alkaa</th>
         <th>Käynti loppuu</th>
         <th>Lääkärin etunimi</th>
         <th>Lääkärin sukunimi</th>
-        <th>Osoite</th>
         <th>Puhelinnumero</th>
         <th>Sähköposti</th>
-        <th></th>
       </tr>
     </thead>
 
@@ -58,15 +56,14 @@
       {% for kaynti in ohjelma %}
  
      <tr>
-            <td><a href="{{base_path}}/asiakas/{{kaynti.a_id}}">{{kaynti.a_id}}</td>
+            <td><a href="{{base_path}}/asiakas/{{kaynti.k_id}}">{{kaynti.k_id}}</td>
           <td>{{kaynti.k_alku}}</td>
           <td>{{kaynti.k_loppu}}</td>
-          <td>{{kaynti.a_etunimi}}</td>
-          <td>{{kaynti.a_sukunimi}}</td>
-          <td>{{kaynti.a_osoite}}</td>
-          <td>{{kaynti.a_puhelinnumero}}</td>
-          <td>{{kaynti.a_sahkoposti}}</td>
-          
+          <td>{{kaynti.l_etunimi}}</td>
+          <td>{{kaynti.l_sukunimi}}</td>
+          <td>{{kaynti.l_puhelinnumero}}</td>
+          <td>{{kaynti.l_sahkoposti}}</td>
+               <td><a class="btn btn-default btn" href="{{base_path}}/kaynti/muokkaus/{{kaynti.k_id}}">Muokkaa</a></td>
   <!--      <td><a class="btn btn-primary btn-sm" href="{{base_path}}/kotilalaakari/asiakas/{{asiakas.a_id}}/edit">Muokkaa</a></td>-->
         </tr>
       {% endfor %}
