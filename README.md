@@ -15,8 +15,8 @@ Lääkärinumero:  1
 Salasana: meikku
 
 Asiakkaan sisään kirjautuminen:
-Asiakasnumero:  14
-Salasana: aaa
+*Asiakasnumero:  14
+*Salasana: aaa
 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 * 
