@@ -20,8 +20,8 @@ class AsiakasController extends BaseController {
         }
 
        // Kint::dump($_SESSION);
-         Redirect::to('/asiakas/edit/'. $asiakas->a_id);
-       // Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$asiakas->a_etunimi.' '.$asiakas->a_sukunimi.'!'));
+       //  Redirect::to('/asiakas/edit/'. $asiakas->a_id);
+        Redirect::to('/asiakas/ohjelma/'.$asiakas->a_id,array('message'=>'Tervetuloa takaisin'.' '.$asiakas->a_etunimi.' '.$asiakas->a_sukunimi.'!'));
    
         }
       
@@ -54,6 +54,7 @@ class AsiakasController extends BaseController {
     public static function edit($a_id) {
         
       //  self::check_asiakas_or_laakari_logged_in();
+       Kint::dump($_SESSION);
         $asiakas = Asiakas::find($a_id);
         View::make('asiakas/edit.html', array('attributes' => $asiakas,'message' => 'Tarkistaisitko ystävällisesti tietosi'));
     }
@@ -64,7 +65,6 @@ class AsiakasController extends BaseController {
         //  Kint::dump($a_id)i;
     //  self::check_asiakas_or_laakari_logged_in();
         $params = $_POST;
-        Kint::dump($params);
         Kint::dump($params);
      //  Kint::dump($_POST);
         $attributes = array(
@@ -174,7 +174,7 @@ $ohjelma = Kaynti::asiakkaan_ohjelma($a_id);
 //Kint::dump($ohjelma);
 $asiakas = Asiakas::find($a_id);
 //Kint::dump($asiakas);
-     
+ //  Kint::dump($a_id);
   //Kint::dump($ohjelma);   
  View::make('asiakas/show.html', array('asiakas' => $asiakas,'ohjelma' => $ohjelma));  
      

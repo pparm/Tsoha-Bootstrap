@@ -54,13 +54,17 @@ KayntiController::kayntimuokkaa_tallenna();
 
 
 $routes->get('/kaynti/:k_id', function($k_id) {
- KayntiController::kaynti($k_id);
-});
+KayntiController::kaynti($k_id);
 
-$routes->post('/kaynti/k:id', function($k_id) {
-//Kint::dump($_SESSION);
-//Kint::dump($_POST);
-AsiakasController::kaynti_tallenna(k_id);
+ 
+});
+    
+$routes->post('/kaynti/', function() {
+/*
+    Kint::dump($_SESSION);
+Kint::dump($_POST);
+*/
+KayntiController::kaynti_tallenna();
 
  
  
@@ -125,7 +129,6 @@ AsiakasController::store();
 
 // Asiakkaan lisäyslomakkeen näyttäminen
 $routes->get('/asiakas/new', function() {
-
     AsiakasController::create();
 });
 
@@ -142,9 +145,9 @@ $routes->get('/asiakas/ohjelma/:a_id', function($a_id) {
 
 $routes->get('/asiakas/edit/:a_id', function($a_id) {
     // Asiakkaan muokkauslomakkeen esittäminen
-    Kint::dump($a_id);
-     Kint::dump($_SESSION);  
-     Kint::dump($_POST);  
+   // Kint::dump($a_id);
+     //Kint::dump($_SESSION);  
+    // Kint::dump($_POST);  
     AsiakasController::edit($a_id);
 });
 
@@ -211,7 +214,11 @@ $routes->post('/laakari/login', function() {
    LaakariController::handle_login();
 });
 
-
+$routes->get('/laakari/etusivu', function() {
+    // Lääkärin etusivun esittäminen
+   
+   LaakariController::etusivu();
+});
 
 
 

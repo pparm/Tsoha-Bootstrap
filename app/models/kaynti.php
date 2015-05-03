@@ -3,7 +3,7 @@
 class Kaynti extends BaseModel {
 
     // Attribuutit
-    public $a_id , $l_id, $k_id, $k_alku, $k_loppu, $k_oire, $k_raportti, $k_hoitoohje ,$a_etunimi, $a_sukunimi, $a_osoite, $a_puhelinnumero, $a_sahkoposti,$a_salasana,$l_etunimi,$l_sukunimi,$l_puhelinnumero,$l_sahkoposti;
+    public $a_id , $l_id, $k_id, $k_alku, $k_loppu, $k_oire, $k_raportti, $k_hoitoohje ,$a_etunimi, $a_sukunimi, $a_osoite, $a_puhelinnumero, $a_sahkoposti,$a_salasana,$l_etunimi,$l_sukunimi,$l_puhelinnumero,$l_sahkoposti,$asiakkaan_ohjelma;
 
     // Konstruktori
     public function __construct($attributes) {
@@ -40,9 +40,9 @@ class Kaynti extends BaseModel {
     // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
     
         
-        $query = DB::connection()->prepare('UPDATE Kaynti SET l_id = :l_id, k_oire = :k_oire WHERE k_id = :k_id');
+        $query = DB::connection()->prepare('UPDATE Kaynti SET l_id = :l_id, k_oire = :k_oire, k_hoitoohje = :k_hoitoohje, k_raportti = :k_raportti WHERE k_id = :k_id');
     // Muistathan, että olion attribuuttiin pääse syntaksilla $this->attribuutin_nimi
-    $query->execute(array('l_id' => $this->l_id,'k_oire' => $this->k_oire,'k_id' => $this->k_id));
+    $query->execute(array('l_id' => $this->l_id,'k_oire' => $this->k_oire,'k_id' => $this->k_id,'k_hoitoohje' => $this->k_hoitoohje,'k_raportti' => $this->k_raportti));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
 // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
@@ -108,8 +108,9 @@ class Kaynti extends BaseModel {
         
             
         }
-   //     Kint::dump($asiakkaan_ohjelma);
-       return $asiakkaan_ohjelma;
+        //echo "jepjep";
+        //Kint::dump($asiakkaan_ohjelma);
+      return $asiakkaan_ohjelma;
         }
     
         

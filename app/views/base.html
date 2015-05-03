@@ -34,14 +34,29 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Sovelluksen nimi -->
-                    <a class="navbar-brand" href="{{base_path}}">Kotilääkäri</a>
+                    <a class="navbar-brand" /a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navigation">
+                    
+                    {% if asiakas_logged_in %}
                     <ul class="nav navbar-nav">
                         <!-- Navigaation linkit -->
-                        <li><a href="{{base_path}}/">Asiakkaat</a></li>
+                        <li><a href="{{base_path}}/asiakas/ohjelma/{{asiakas.a_id}}">Käynnit</a></li>
                     </ul>
+                    {% endif %}
+                    {% if user_logged_in %}
+                    <ul class="nav navbar-nav">
+                        <!-- Navigaation linkit -->
+                        <li><a href="{{base_path}}/asiakkaat">Asiakkaat</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <!-- Navigaation linkit -->
+                        <li><a href="{{base_path}}/laakari/ohjelma/{{user_logged_in.l_id}}">Lääkärin ohjelma</a></li>
+                    </ul>
+                    {% endif %}
+                    
+                    
                     
                     {% if user_logged_in or asiakas_logged_in %}
                     <form class="navbar-form navbar-right" method="post" action="{{base_path}}/logout">

@@ -4,6 +4,9 @@ class LaakariController extends BaseController{
     public static function login(){
         View::make('laakari/login.html');
     }
+    public static function etusivu(){
+        View::make('laakari/laakari_etusivu.html');
+    }
     
     
     
@@ -34,7 +37,8 @@ class LaakariController extends BaseController{
        // Kint::dump($_SESSION);
     //   echo $_SESSION['laakari'];
       // Redirect::to('/asiakaat', array('message' => 'Tervetuloa takaisin     '.$laakari->l_etunimi.'!'));
-        Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$laakari->l_etunimi.' '.$laakari->l_sukunimi.'!'));
+        Redirect::to('/laakari/etusivu');
+       // Redirect::to('/asiakkaat',array('message'=>'Tervetuloa takaisin'.' '.$laakari->l_etunimi.' '.$laakari->l_sukunimi.'!'));
        }
        
    
@@ -118,7 +122,7 @@ class LaakariController extends BaseController{
   }
     public static function ohjelma($l_id){
      $ohjelma = Kaynti::ohjelma($l_id);   
-     View::make('kaynti/ohjelma.html', array('ohjelma' => $ohjelma));  
+     View::make('laakari/ohjelma.html', array('ohjelma' => $ohjelma));  
      
      Kint::dump($ohjelma);      
      

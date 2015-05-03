@@ -13,17 +13,22 @@
 <!--<p> -->
 <!-- {{forms.destroy_button()}}    -->
 
-
+<!--
 <form method="post" action="{{base_bath}}/kotilaakari/asiakas/{{asiakas.a_id}}/destroy" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista</button>
 </form>
+
+-->
 <!--
 <form method="post" action="{{base_bath}}/kotilaakari/asiakas/edit/{    {asiakas.a_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-primary">Muokkaa</button>
 </form>
 -->
 <form action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
-    <button class="btn btn-primary">Muokkaa</button>
+    <button class="btn btn-primary">Tilaa lääkäri</button>
+</form>
+<form action="{{base_bath}}/kotilaakari/asiakas/edit/{{asiakas.a_id}}" style="display: inline-block;">
+    <button class="btn btn-danger">Muokkaa asiakasta</button>
 </form>
 
 <!--  <a href="#" class="btn btn-default">Muokkaa</a>
@@ -51,19 +56,19 @@
         <th>Sähköposti</th>
       </tr>
     </thead>
-
+    
     <tbody>
       {% for kaynti in ohjelma %}
  
      <tr>
-            <td><a href="{{base_path}}/asiakas/{{kaynti.k_id}}">{{kaynti.k_id}}</td>
+            <td><a href="{{base_path}}/kaynti/{{kaynti.k_id}}">{{kaynti.k_id}}</td>
           <td>{{kaynti.k_alku}}</td>
           <td>{{kaynti.k_loppu}}</td>
           <td>{{kaynti.l_etunimi}}</td>
           <td>{{kaynti.l_sukunimi}}</td>
           <td>{{kaynti.l_puhelinnumero}}</td>
           <td>{{kaynti.l_sahkoposti}}</td>
-               <td><a class="btn btn-default btn" href="{{base_path}}/kaynti/muokkaus/{{kaynti.k_id}}">Muokkaa</a></td>
+               <td><a class="btn btn-default btn" href="{{base_path}}/kaynti/muokkaus/{{kaynti.k_id}}">Muokkaa tilausta</a></td>
   <!--      <td><a class="btn btn-primary btn-sm" href="{{base_path}}/kotilalaakari/asiakas/{{asiakas.a_id}}/edit">Muokkaa</a></td>-->
         </tr>
       {% endfor %}
