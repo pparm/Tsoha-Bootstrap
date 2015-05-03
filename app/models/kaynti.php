@@ -90,8 +90,7 @@ class Kaynti extends BaseModel {
         $query = DB::connection()->prepare('SELECT kaynti.k_id, kaynti.l_id, kaynti.k_alku, kaynti.k_loppu,asiakas.a_id, laakari.l_etunimi, laakari.l_sukunimi, laakari.l_puhelinnumero, laakari.l_sahkoposti FROM Kaynti FULL OUTER JOIN Laakari ON Laakari.l_id = Kaynti.l_id FULL OUTER JOIN Asiakas ON Asiakas.a_id = Kaynti.a_id WHERE Kaynti.a_id = :a_id' );
         $query->execute(array('a_id' => $a_id));
         $rows = $query->fetchAll();
-        $ohjelma = array();
-     //   Kint::dump($rows);
+        $asiakkaan_ohjelma = array();
         foreach ($rows as $row) {
             $asiakkaan_ohjelma[] = new Kaynti(array(
                 'a_id' => $row['a_id'],
@@ -108,8 +107,6 @@ class Kaynti extends BaseModel {
         
             
         }
-        //echo "jepjep";
-        //Kint::dump($asiakkaan_ohjelma);
       return $asiakkaan_ohjelma;
         }
     

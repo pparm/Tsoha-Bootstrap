@@ -61,7 +61,7 @@ class BaseController {
         // Toteuta kirjautumisen tarkistus tähän.
         // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
 
-        if (!isset($_SESSION['asiakas']) || !isset($_SESSION['laakari'])) {
+        if (!(isset($_SESSION['asiakas']) || isset($_SESSION['laakari']))) {
             Redirect::to('/', array('message' => 'Kirjaudu ensin sisään!'));
         }
     }
