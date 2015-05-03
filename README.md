@@ -11,12 +11,12 @@ Järjestelmä löytyy:
 *https://pparmann.users.cs.helsinki.fi/kotilaakari/
 
 Lääkärin sisään kirjautuminen:
-*Lääkärinumero:  1
-*Salasana: meikku
+Lääkärinumero:  1
+Salasana: meikku
 
 Asiakkaan sisään kirjautuminen:
-*Asiakasnumero:  10
-*Salasana: aaa
+Asiakasnumero:  14
+Salasana: aaa
 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 * 
