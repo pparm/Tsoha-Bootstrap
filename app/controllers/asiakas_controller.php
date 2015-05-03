@@ -56,8 +56,6 @@ class AsiakasController extends BaseController {
     public static function update($a_id) {
           self::check_asiakas_or_laakari_logged_in();
         $params = $_POST;
-        Kint::dump($params);
-        //  Kint::dump($_POST);
         $attributes = array(
             'a_id' => $a_id,
             'a_etunimi' => $params['a_etunimi'],
