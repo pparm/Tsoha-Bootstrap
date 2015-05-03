@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Mukava työskennellä kanssasi {{user_logged_in.l_etunimi}} {{user_logged_in.l_sukunimi}}</h1>
+
+<div class="inner cover">
+    <form action="{{base_bath}}/kotilaakari/asiakkaat" style="display: inline-block;">
+        <button class="btn btn-primary">Asiakkaat </button>
+    </form>
+
+    <form action="{{base_bath}}/kotilaakari/laakari/ohjelma/{{user_logged_in.l_id}}" style="display: inline-block;">
+        <button class="btn btn-primary">Lääkärin ohjelma</button>
+    </form>
+
+
+</div>
+
+
+{% endblock %}
