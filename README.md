@@ -19,7 +19,8 @@ Asiakkaan sisään kirjautuminen:
 *Salasana: aaa
 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
-
+* 
+Kesäisin terveisin
  
 ************************************************************************************************
  
