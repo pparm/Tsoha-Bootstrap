@@ -10,13 +10,15 @@ LOPULLINEN PALAUTUS:
 Järjestelmä löytyy:
 *https://pparmann.users.cs.helsinki.fi/kotilaakari/
 
-Lääkärin sisään kirjautuminen:
-Lääkärinumero:  1
-Salasana: meikku
+*Lääkärin sisään kirjautuminen:
 
-Asiakkaan sisään kirjautuminen:
-*Asiakasnumero:  14
-*Salasana: aaa
+-Lääkärinumero:  1
+-Salasana: meikku
+
+*Asiakkaan sisään kirjautuminen:
+
+-Asiakasnumero:  14
+-Salasana: aaa
 
 * [Linkki dokumentaatio-pdf](https://github.com/pparm/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 * 
